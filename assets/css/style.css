@@ -1,4 +1,10 @@
 body {
     background-color: #285862;
     color: white;
+    
+}
+
+.category {
+    padding-top: 20px;
+    display: inline-block;
 }

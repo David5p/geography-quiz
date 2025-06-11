@@ -14,15 +14,16 @@
 body {
     font-family: var(--primary-font)!important;
     background-color: var(--primary-color) !important;
-    color: white !important;
+    color: var(--secondary-color)!important;
     text-align: center !important;
     width: 100vw !important;
     height: 100vh !important;
 
 }
-.main-heading {
-    margin: 50px 20px;
+.main-heading, .logo {
+    margin: 10px;
 }
+.logo
 .category {
     padding-top: 20px;
     display: inline-block;

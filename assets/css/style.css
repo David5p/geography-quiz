@@ -1,10 +1,30 @@
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap');
+
+
+/* CSS Variables */
+:root {
+    --primary-font: "Outfit", sans-serif;
+    --secondary-font: "Josefin sans", sans-serif;
+    --primary-color: #285862;
+    /* dark blue */
+    --secondary-color:white;
+}
+
 body {
-    background-color: #285862;
-    color: white;
-    
+    font-family: var(--primary-font)!important;
+    background-color: var(--primary-color) !important;
+    color: white !important;
 }
 
 .category {
     padding-top: 20px;
     display: inline-block;
+}
+
+#answer-buttons {
+    margin-top: 2rem;
+}
+.score-area {
+    margin-top: 1rem;
 }

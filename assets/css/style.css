@@ -14,7 +14,7 @@
 body {
     font-family: var(--primary-font)!important;
     background-color: var(--primary-color) !important;
-    color: var(--secondary-color)!important;
+    color: white !important;
     text-align: center !important;
     width: 100% !important;
     height: 100% !important;
@@ -30,6 +30,13 @@ body {
     padding-top: 20px;
     width:auto;
     display: inline-block;
+}
+div.quiz-area.container {
+    width: 800px;
+    max-width: 80%;
+    border-radius: 5px;
+    padding:10px;
+
 }
 
 #answer-buttons {

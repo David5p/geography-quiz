@@ -16,16 +16,19 @@ body {
     background-color: var(--primary-color) !important;
     color: var(--secondary-color)!important;
     text-align: center !important;
-    width: 100vw !important;
-    height: 100vh !important;
+    width: 100% !important;
+    height: 100% !important;
 
 }
 .main-heading, .logo {
     margin: 10px;
+    max-width: 100%;
+    height: auto;
 }
 .logo
 .category {
     padding-top: 20px;
+    width:auto;
     display: inline-block;
 }
 
@@ -38,4 +41,5 @@ body {
 
 .btn {
     margin-right: 1rem;
+    margin-top: 2rem;
 }

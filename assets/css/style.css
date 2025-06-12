@@ -50,3 +50,6 @@ div.quiz-area.container {
     margin-right: 1rem;
     margin-top: 2rem;
 }
+.hide{
+    display: none;
+}

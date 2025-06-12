@@ -14,18 +14,20 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="main-heading hide">Countries and Capitals Quiz</h1>
-    <img class="logo hide" src="assets/images/globe1.jpg" alt="globe of the planet Earth">
+    <h1 class="main-heading">Countries and Capitals Quiz</h1>
+    <img class="logo" src="assets/images/globe1.jpg" alt="globe of the planet Earth">
 
     <div class="quiz-area container">
         <div class="category">
             <button id="capitals" class ="btn btn-primary col-5 col-md-3">Capitals</button>
             <button id="countries" class="btn btn-primary col-5 col-md-3">Countries</button>
-            <button id="next-btn" class="btn btn-warning hide col-6 col-md-3">Next</button>
-
         </div>
-        <div id = "capitals-questions hide">
-            <div id="answer-buttons" class="btn-grid">
+
+        <div id="nxt-btn" class="hide">
+            <button class="btn btn-warning hide col-6 col-md-3">Next</button>
+        </div>
+        <div id = "capitals-questions">
+            <div id="answer-buttons" class="btn-grid hide">
                 <button class ="btn btn-primary col-6 col-md-5">Answer 1</button>
                 <button class ="btn btn-primary col-6 col-md-5">Answer 2</button>
                 <button class ="btn btn-primary col-6 col-md-5">Answer 3</button>
@@ -34,7 +36,7 @@
         </div>
 
         <div id = "countries-questions hide">
-            <div id="answer-buttons" class="btn-grid">
+            <div id="answer-buttons" class="btn-grid hide">
             <button class ="btn btn-primary col-6 col-md-5">Answer 1</button>
                 <button class ="btn btn-primary col-6 col-md-5">Answer 2</button>
                 <button class ="btn btn-primary col-6 col-md-5">Answer 3</button>

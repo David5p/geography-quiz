@@ -6,7 +6,10 @@ countriesButton.addEventListener('click', startGame)
 
 
 function startGame() {
-    console.log("Let the games begin")
+    console.log('let the games begin')
+    document.getElementById('capitals-btn').style.display = 'none'
+    document.getElementById('countries-btn').style.display = 'none'
+
 }
     
     function setNextCountryQuestion() {

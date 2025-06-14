@@ -2,7 +2,12 @@ const capitalsButton = document.getElementById("capitals-btn")
 const countriesButton = document.getElementById("countries-btn")
 const capitalsQuestions = document.getElementById('answer-btn')
 const countriesQuestions = document.getElementById('answer-btn')
-let title = document.querySelectorAll('h1')
+const title = document.querySelectorAll('h1')
+const questionElement = document.getElementById('capitals-question')
+const answerButtonsElement = document.getElementById('answer-button')
+
+const shuffledCaptialQuestions, currentCapitalsQuestionIndex 
+
 
 capitalsButton.addEventListener('click', startCapitalsGame)
 countriesButton.addEventListener('click', startCountriesGame)
@@ -12,9 +17,13 @@ function startCapitalsGame() {
     console.log('let the capitals games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
+    shuffledCaptialQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
+    currentCapitalsQuestionIndex = 0
     capitalsQuestions.classList.remove('hide')
    
    replaceTitle("capital");
+
+   setNextCapitalQuestion();
 
 }
 
@@ -26,10 +35,12 @@ function startCountriesGame() {
 
     replaceTitle("country");
 
+    setNextCountryQuestion();
+
 }
 
  function replaceTitle(quizType) {
-    const title = document.getElementsByTagName("h1")[0];  // Get the first <h1> element
+    const title = document.getElementsByTagName("h1")[0];  // Gets the first <h1> element
     const newTitle = document.createElement("h1");
 
     // Set the title text based on the quizType
@@ -51,9 +62,26 @@ function startCountriesGame() {
 };
 
 function setNextCapitalQuestion() {
+    showQuestion(shuffledCaptialQuestions[currentQuestionIndex])
 
 };
+
+function showCapitalsQuestion (question)  {
+
+
+}
 
 function selectAnswer() {
 
 };
+
+const capitalsQuiz = [
+    {question: 'Which of these is not a capital city in Europe?',
+    answers:[
+        {text: 'Zurich', correct: true},
+        {text: 'Brussels', correct: false},
+        {text: 'Lisbon', correct: false},
+        {text: 'Brussels', correct: false}
+    ]
+ }
+]

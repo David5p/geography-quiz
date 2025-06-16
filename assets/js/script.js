@@ -9,34 +9,78 @@ const capitalsQuestionElement = document.getElementById('capitals-question-text'
 const countriesQuestionElement = document.getElementById('countries-question-text');
 
 
-const capitalsQuiz = [
-    {question: 'Which of these is not a capital city in Europe?',
-    answers:[
-        {text: 'Zurich', correct: true},
-        {text: 'Brussels', correct: false},
-        {text: 'Lisbon', correct: false},
-        {text: 'Belgrade', correct: false}
-    ]
- }
-]
+let capitalsQuiz = [];
 
-const countriesQuiz = [
-    {question: 'Which of these is <strong>not</strong> a country in South America?',
-    answers:[
-        {text: 'Paraguay', correct: false},
-        {text: 'Peru', correct: false},
-        {text: 'Panama', correct: true},
-        {text: 'Mexico', correct: false}
-    ]
- }
-]
+let countriesQuiz = [];
 
 
-const shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
-const currentCapitalsQuestionIndex = 0
+//Disable buttons 
 
-const shuffledCountriesQuestions = countriesQuiz.sort(() => Math.random() - 0.5)
-const currentCountriesQuestionIndex = 0
+capitalsButton.disabled = true;
+
+countriesButton.disabled = true;
+
+fetch('questions.json')
+
+  .then(response => response.json())
+
+  .then(data => {
+
+    // Transform JSON into the format for the quiz
+
+    capitalsQuiz = data.capitalsQuestions.map(q => ({
+
+      question: q.question,
+
+      answers: q.options.map(option => ({
+
+        text: option,
+
+        correct: option === q.answer
+
+      }))
+
+    }));
+
+
+
+    countriesQuiz = data.countriesQuestions.map(q => ({
+
+      question: q.question,
+
+      answers: q.options.map(option => ({
+
+        text: option,
+
+        correct: option === q.answer
+
+      }))
+
+    }));
+
+
+
+    // Questions shuffle after loading
+
+    shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5);
+
+    shuffledCountriesQuestions = countriesQuiz.sort(() => Math.random() - 0.5);
+
+    //Enable buttons
+     capitalsButton.disabled = false;
+
+    countriesButton.disabled = false;
+
+  })
+
+  .catch(err => console.error('Error loading questions:', err));
+
+
+let shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
+let currentCapitalsQuestionIndex = 0
+
+let shuffledCountriesQuestions = countriesQuiz.sort(() => Math.random() - 0.5)
+let currentCountriesQuestionIndex = 0
 
 capitalsButton.addEventListener('click', startCapitalsGame)
 countriesButton.addEventListener('click', startCountriesGame)

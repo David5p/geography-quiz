@@ -151,64 +151,62 @@
     },
     {
       "question": "Which one of these countries do not border China?",
-      "options": ["Vietnam", "Mongolia", "Myanmar" "Uzbekistan"],
+      "options": ["Vietnam", "Mongolia", "Myanmar", "Uzbekistan"],
       "answer": "Uzbekistan"
     },
 {
       "question": "Which one of these countries border Mexico?",
-      "options": ["Cuba", "Peru", "Belize" "Puerto Rico"],
+      "options": ["Cuba", "Peru", "Belize", "Puerto Rico"],
       "answer": "Belize"
     },
     {
       "question": "Which one of these countries do not border Germany?",
-      "options": ["Austria", "Slovenia", "Poland" "Czech Republic"],
+      "options": ["Austria", "Slovenia", "Poland", "Czech Republic"],
       "answer": "Slovenia"
     },
 
     {
       "question": "Which of one of these counties do not border Turkey?",
-      "options": ["Romania", "Greece", "Bulgaria" "Iraq"],
+      "options": ["Romania", "Greece", "Bulgaria", "Iraq"],
       "answer": "Romania"
     },
 
  {
       "question": "Which landlocked African country is completely surrounded by South Africa?",
-      "options": ["The Gambia", "Eswatini", "Zimbabwe" "Lesotho"],
+      "options": ["The Gambia", "Eswatini", "Zimbabwe", "Lesotho"],
       "answer": "Lesotho"
     },
 
     {
       "question": "How many countries are in Europe geographically",
-      "options": ["34", "50", "42" "55"],
+      "options": ["34", "50", "42", "55"],
       "answer": "50"
     },
   {
       "question": "How many countries are in Asia geographically",
-      "options": ["41", "60", "49" "37"],
+      "options": ["41", "60", "49", "37"],
       "answer": "39"
     },
     {
       "question": "How many countries are in South America geographically",
-      "options": ["12", "14", "16" "11"],
+      "options": ["12", "14", "16", "11"],
       "answer": "12"
     },
     {
       "question": "How many countries are in Central America geographically",
-      "options": ["8", "6", "10" "7"],
+      "options": ["8", "6", "10", "7"],
       "answer": "7"
     },
 
     {
       "question": "How many countries are in North America geographically",
-      "options": ["14", "25", "23" "21"],
+      "options": ["14", "25", "23", "21"],
       "answer": "23"
     },
 {
       "question": "What continent is Greenland on?",
-      "options": ["Europe", "Antartica", "South America" "North America"],
+      "options": ["Europe", "Antartica", "South America", "North America"],
       "answer": "North America"
-    },
-
-
+    }
   ]
 }

@@ -1,12 +1,25 @@
 const capitalsButton = document.getElementById("capitals-btn")
 const countriesButton = document.getElementById("countries-btn")
-const capitalsQuestions = document.getElementById('answer-btn')
-const countriesQuestions = document.getElementById('answer-btn')
+const capitalsQuestions = document.getElementById('capitals-answer-btn')
+const countriesQuestions = document.getElementById('countries-answer-btn')
 const title = document.querySelectorAll('h1')
-const questionElement = document.getElementById('capitals-question')
-const answerButtonsElement = document.getElementById('answer-button')
+const questionElement = document.getElementById('capitals-questions')
 
-const shuffledCaptialQuestions, currentCapitalsQuestionIndex 
+
+const capitalsQuiz = [
+    {question: 'Which of these is not a capital city in Europe?',
+    answers:[
+        {text: 'Zurich', correct: true},
+        {text: 'Brussels', correct: false},
+        {text: 'Lisbon', correct: false},
+        {text: 'Belgrade', correct: false}
+    ]
+ }
+]
+
+
+const shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
+ const currentCapitalsQuestionIndex = 0
 
 
 capitalsButton.addEventListener('click', startCapitalsGame)
@@ -17,8 +30,6 @@ function startCapitalsGame() {
     console.log('let the capitals games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
-    shuffledCaptialQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
-    currentCapitalsQuestionIndex = 0
     capitalsQuestions.classList.remove('hide')
    
    replaceTitle("capital");
@@ -62,26 +73,16 @@ function startCountriesGame() {
 };
 
 function setNextCapitalQuestion() {
-    showQuestion(shuffledCaptialQuestions[currentQuestionIndex])
+    showCapitalsQuestion(shuffledCapitalQuestions[currentCapitalsQuestionIndex])
 
 };
 
 function showCapitalsQuestion (question)  {
-
-
+    questionElement.innerText = question.question
 }
 
 function selectAnswer() {
 
 };
 
-const capitalsQuiz = [
-    {question: 'Which of these is not a capital city in Europe?',
-    answers:[
-        {text: 'Zurich', correct: true},
-        {text: 'Brussels', correct: false},
-        {text: 'Lisbon', correct: false},
-        {text: 'Brussels', correct: false}
-    ]
- }
-]
+

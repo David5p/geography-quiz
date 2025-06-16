@@ -2,9 +2,11 @@ const capitalsButton = document.getElementById("capitals-btn")
 const countriesButton = document.getElementById("countries-btn")
 const capitalsAnswerButtons = document.getElementById('capitals-answer-btn')
 const capitalsQuestionContainer = document.getElementById('capitals-questions');
-const countriesQuestions = document.getElementById('countries-answer-btn')
+const countriesQuestionContainer = document.getElementById('countries-questions');
+const countriesAnswerButtons = document.getElementById('countries-answer-btn')
 const title = document.querySelectorAll('h1')
-const questionElement = document.getElementById('capitals-question-text');
+const capitalsQuestionElement = document.getElementById('capitals-question-text');
+const countriesQuestionElement = document.getElementById('countries-question-text');
 
 
 const capitalsQuiz = [
@@ -18,10 +20,23 @@ const capitalsQuiz = [
  }
 ]
 
+const countriesQuiz = [
+    {question: 'Which of these is <strong>not</strong> a country in South America?',
+    answers:[
+        {text: 'Paraguay', correct: false},
+        {text: 'Peru', correct: false},
+        {text: 'Panama', correct: true},
+        {text: 'Mexico', correct: false}
+    ]
+ }
+]
+
 
 const shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
- const currentCapitalsQuestionIndex = 0
+const currentCapitalsQuestionIndex = 0
 
+const shuffledCountriesQuestions = countriesQuiz.sort(() => Math.random() - 0.5)
+const currentCountriesQuestionIndex = 0
 
 capitalsButton.addEventListener('click', startCapitalsGame)
 countriesButton.addEventListener('click', startCountriesGame)
@@ -44,7 +59,8 @@ function startCountriesGame() {
     console.log('let the countries games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
-    countriesQuestions.classList.remove('hide')
+    countriesQuestionContainer.classList.remove('hide');
+    countriesAnswerButtons.classList.remove('hide');
 
     replaceTitle("country");
 
@@ -71,6 +87,8 @@ function startCountriesGame() {
 
 
     function setNextCountryQuestion() {
+    showCountriesQuestion(shuffledCountriesQuestions[currentCountriesQuestionIndex])
+
 
 };
 
@@ -80,7 +98,7 @@ function setNextCapitalQuestion() {
 };
 
 function showCapitalsQuestion(question) {
-    questionElement.innerText = question.question;
+    capitalsQuestionElement.innerText = question.question;
 
     capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
 
@@ -98,6 +116,28 @@ function showCapitalsQuestion(question) {
     capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
     capitalsQuestionContainer.classList.remove('hide'); // show question container
 }
+
+function showCountriesQuestion(question) {
+    countriesQuestionElement.innerHTML = question.question;
+
+    countriesAnswerButtons.innerHTML = ''; // clear previous buttons
+
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn', 'btn-primary', 'col-6', 'col-md-5');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener('click', selectAnswer);
+        countriesAnswerButtons.appendChild(button);
+    });
+
+    capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
+    capitalsQuestionContainer.classList.remove('hide'); // show question container
+}
+
+
 
 
 function selectAnswer() {

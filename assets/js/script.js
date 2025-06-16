@@ -133,8 +133,8 @@ function showCountriesQuestion(question) {
         countriesAnswerButtons.appendChild(button);
     });
 
-    capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
-    capitalsQuestionContainer.classList.remove('hide'); // show question container
+    countriesAnswerButtons.classList.remove('hide'); // show answer buttons
+    countriesQuestionContainer.classList.remove('hide'); // show question container
 }
 
 

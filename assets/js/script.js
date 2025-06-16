@@ -1,9 +1,10 @@
 const capitalsButton = document.getElementById("capitals-btn")
 const countriesButton = document.getElementById("countries-btn")
-const capitalsQuestions = document.getElementById('capitals-answer-btn')
+const capitalsAnswerButtons = document.getElementById('capitals-answer-btn')
+const capitalsQuestionContainer = document.getElementById('capitals-questions');
 const countriesQuestions = document.getElementById('countries-answer-btn')
 const title = document.querySelectorAll('h1')
-const questionElement = document.getElementById('capitals-questions')
+const questionElement = document.getElementById('capitals-question-text');
 
 
 const capitalsQuiz = [
@@ -30,7 +31,8 @@ function startCapitalsGame() {
     console.log('let the capitals games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
-    capitalsQuestions.classList.remove('hide')
+    capitalsQuestionContainer.classList.remove('hide');
+    capitalsAnswerButtons.classList.remove('hide');
    
    replaceTitle("capital");
 
@@ -77,9 +79,26 @@ function setNextCapitalQuestion() {
 
 };
 
-function showCapitalsQuestion (question)  {
-    questionElement.innerText = question.question
+function showCapitalsQuestion(question) {
+    questionElement.innerText = question.question;
+
+    capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
+
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn', 'btn-primary', 'col-6', 'col-md-5');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener('click', selectAnswer);
+        capitalsAnswerButtons.appendChild(button);
+    });
+
+    capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
+    capitalsQuestionContainer.classList.remove('hide'); // show question container
 }
+
 
 function selectAnswer() {
 

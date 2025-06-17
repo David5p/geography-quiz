@@ -53,3 +53,10 @@ div.quiz-area.container {
 .hide{
     display: none;
 }
+.correct {
+background-color: green !important;
+}
+
+.wrong {
+background-color: red !important;
+}

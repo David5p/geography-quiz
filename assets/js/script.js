@@ -14,6 +14,8 @@ let capitalsQuiz = [];
 
 let countriesQuiz = [];
 
+let quizType = null;
+
 
 //Disable buttons 
 
@@ -79,6 +81,18 @@ let currentCountriesQuestionIndex = 0
 
 capitalsButton.addEventListener('click', startCapitalsGame)
 countriesButton.addEventListener('click', startCountriesGame)
+nextButton.addEventListener('click', () => {
+     // Set the title text based on the quizType
+    if (quizType === "capital") {
+        currentCapitalsQuestionIndex ++
+        setNextCapitalQuestion()
+    } else {
+        (quizType === "country")
+        currentCountriesQuestionIndex ++
+        setNextCountryQuestion()
+    }
+  
+})
 
 
 function startCapitalsGame() {
@@ -197,8 +211,22 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct === "true")
     button.disabled = true;
     })
+    if (correct) {
+        alert("Well Done!");
+    } else {
+        const allButtons = Array.from(selectedButton.parentElement.children);
+        const correctAnswer = allButtons.find(btn => btn.dataset.correct === "true");
+        alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText} `);
+    }
+
     nextButton.classList.remove('hide')
 };
+
+
+
+
+
+
 
 function setStatusClass (element, correct) {
     clearStatusClass(element);

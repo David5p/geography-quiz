@@ -1,5 +1,6 @@
 const capitalsButton = document.getElementById("capitals-btn")
 const countriesButton = document.getElementById("countries-btn")
+const nextButton = document.getElementById("nxt-btn")
 const capitalsAnswerButtons = document.getElementById('capitals-answer-btn')
 const capitalsQuestionContainer = document.getElementById('capitals-questions');
 const countriesQuestionContainer = document.getElementById('countries-questions');
@@ -33,11 +34,8 @@ fetch('questions.json')
       question: q.question,
 
       answers: q.options.map(option => ({
-
         text: option,
-
         correct: option === q.answer
-
       }))
 
     }));
@@ -49,11 +47,8 @@ fetch('questions.json')
       question: q.question,
 
       answers: q.options.map(option => ({
-
         text: option,
-
         correct: option === q.answer
-
       }))
 
     }));
@@ -131,12 +126,14 @@ function startCountriesGame() {
 
 
     function setNextCountryQuestion() {
+        resetState()
     showCountriesQuestion(shuffledCountriesQuestions[currentCountriesQuestionIndex])
 
 
 };
 
 function setNextCapitalQuestion() {
+    resetState()
     showCapitalsQuestion(shuffledCapitalQuestions[currentCapitalsQuestionIndex])
 
 };
@@ -181,6 +178,15 @@ function showCountriesQuestion(question) {
     countriesQuestionContainer.classList.remove('hide'); // show question container
 }
 
+function resetState() {
+    nextButton.classList.add('hide');
+    while (capitalsAnswerButtons.firstChild) {
+        capitalsAnswerButtons.removeChild(capitalsAnswerButtons.firstChild);
+    }
+    while (countriesAnswerButtons.firstChild) {
+        countriesAnswerButtons.removeChild(countriesAnswerButtons.firstChild);
+    }
+}
 
 
 

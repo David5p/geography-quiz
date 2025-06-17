@@ -54,9 +54,9 @@ div.quiz-area.container {
     display: none;
 }
 .correct {
-background-color: green !important;
+background-color: darkgreen !important;
 }
 
 .wrong {
-background-color: red !important;
+background-color: darkred !important;
 }

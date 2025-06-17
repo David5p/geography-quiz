@@ -197,6 +197,7 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct === "true")
     button.disabled = true;
     })
+    nextButton.classList.remove('hide')
 };
 
 function setStatusClass (element, correct) {

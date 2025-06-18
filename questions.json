@@ -57,47 +57,47 @@
     },
     {
       "question": "What is the capital city of Costa Rica?",
-      "options": ["Cartago", "San José", "‘liberia", "Jaco"],
+      "options": ["Cartago", "San José", "liberia", "Jaco"],
       "answer": "San José"
     },
     {
       "question": "What is the capital city of Guatemala?",
-      "options": ["Mixco", "Quetzaltenango", "‘Guatemala City", "Jutiapa"],
+      "options": ["Mixco", "Quetzaltenango", "Guatemala City", "Jutiapa"],
       "answer": "Guatemala City"
     },
     {
       "question": "What is the capital city of Zimbabwe?",
-      "options": ["Bulawayo", "Gweru", "‘Harare", "Kadoma"],
+      "options": ["Bulawayo", "Gweru", "Harare", "Kadoma"],
       "answer": "Harare"
     },
     {
       "question": "Which of these is not a capital city in Africa?",
-      "options": ["Johannesburg", "Cairo", "‘Abuja", "Accra"],
+      "options": ["Johannesburg", "Cairo", "Abuja", "Accra"],
       "answer": "Johannesburg"
     },
     {
       "question": "Which of these is not a capital city in Asia?",
-      "options": ["Seoul", "Tokyo", "‘Shanghai", "Dhaka"],
+      "options": ["Seoul", "Tokyo", "Shanghai", "Dhaka"],
       "answer": "Shanghai"
     },
     {
       "question": "Which of these is not a capital city in Australasia",
-      "options": ["Canberra", "Wellington", "‘Apia", "Auckland"],
+      "options": ["Canberra", "Wellington", "Apia", "Auckland"],
       "answer": "Auckland"
     },
     {
       "question": "Which of these is not a capital city in Europe?",
-      "options": ["Berlin", "Belgrade", "‘Belfast", "Barcelona"],
+      "options": ["Berlin", "Belgrade", "Belfast", "Barcelona"],
       "answer": "Barcelona"
     },
     {
       "question": "Which of these is a capital city in Asia?",
-      "options": ["Busan", "Hanoi", "‘Osaka", "Pattaya City"],
+      "options": ["Busan", "Hanoi", "Osaka", "Pattaya City"],
       "answer": "Hanoi"
     },
     {
       "question": "What is the capital city of USA?",
-      "options": ["New York", "Washington, D.C", "‘Chicago", "Los Angeles"],
+      "options": ["New York", "Washington, D.C", "Chicago", "Los Angeles"],
       "answer": "Washington, D.C"
     }
   ],

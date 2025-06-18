@@ -87,9 +87,9 @@ nextButton.addEventListener('click', () => {
     if (quizType === "capital") {
         currentCapitalsQuestionIndex ++
         setNextCapitalQuestion()
-    } else if {
+    } else if
         (quizType === "country")
-        currentCountriesQuestionIndex ++
+        {currentCountriesQuestionIndex ++
         setNextCountryQuestion()
     }
   
@@ -107,6 +107,8 @@ function startCapitalsGame() {
    replaceTitle("capital");
 
    setNextCapitalQuestion();
+
+   backtoMainMenu();
 
 }
 
@@ -208,24 +210,41 @@ function resetState() {
 
 
 function selectAnswer(e) {
-    const selectedButton = e.target
+    const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === "true";
+
+    // Mark all buttons and disable them
     Array.from(selectedButton.parentElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct === "true")
-    button.disabled = true;
-    })
+        setStatusClass(button, button.dataset.correct === "true");
+        button.disabled = true;
+    });
+
+    // Show feedback to user
     if (correct) {
         alert("Well Done!");
     } else {
         const allButtons = Array.from(selectedButton.parentElement.children);
         const correctAnswer = allButtons.find(btn => btn.dataset.correct === "true");
-        alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText} `);
+        alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText}`);
     }
+}
 
-    nextButton.classList.remove('hide')
-};
-
-
+function backtoMainMenu() 
+    if (quizType === "capital") {
+        if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
+            nextButton.classList.remove('hide');
+        } else {
+            nextButton.innerText = 'Return to main menu';
+            nextButton.style.background = 'blue';
+        }
+    } else if (quizType === "country") {
+        if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
+            nextButton.classList.remove('hide');
+        } else {
+            nextButton.innerText = 'Return to main menu';
+           nextButton.style.background = 'blue';
+        }
+    }
 
 
 

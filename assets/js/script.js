@@ -108,12 +108,10 @@ function startCapitalsGame() {
 
    setNextCapitalQuestion();
 
-   backtoMainMenu();
-
 }
 
 function startCountriesGame() {
-    quizType = "capital";
+    quizType = "country";
     console.log('let the countries games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
@@ -148,13 +146,11 @@ function startCountriesGame() {
         resetState()
     showCountriesQuestion(shuffledCountriesQuestions[currentCountriesQuestionIndex])
 
-
 };
 
 function setNextCapitalQuestion() {
     resetState()
     showCapitalsQuestion(shuffledCapitalQuestions[currentCapitalsQuestionIndex])
-
 };
 
 function showCapitalsQuestion(question) {
@@ -227,15 +223,37 @@ function selectAnswer(e) {
         const correctAnswer = allButtons.find(btn => btn.dataset.correct === "true");
         alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText}`);
     }
+    
+    //Determine to show next question or button to return to the main menu
+    if (quizType ==="capital") {
+        if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
+            nextButton.innerText = 'Next';
+            nextButton.style.background ='';
+            nextButton.classList.remove ('hide');
+        } else {
+            lastQuestion();
+        }
+        else if (quizType ==="country") {
+        if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
+            nextButton.innerText = 'Next';
+            nextButton.style.background ='';
+            nextButton.classList.remove ('hide');
+        } else {
+            lastQuestion();
+        }
+    }
 }
 
-function backtoMainMenu() 
+function backToMainMenu() {
     if (quizType === "capital") {
         if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
             nextButton.classList.remove('hide');
         } else {
             nextButton.innerText = 'Return to main menu';
             nextButton.style.background = 'blue';
+            nextButton.classList.remove('hide');
+
+            nextButton.addEventListener('click', returnToCategories)
         }
     } else if (quizType === "country") {
         if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
@@ -243,8 +261,43 @@ function backtoMainMenu()
         } else {
             nextButton.innerText = 'Return to main menu';
            nextButton.style.background = 'blue';
+           nextButton.classList.remove('hide');
+
+           nextButton.addEventListener('click', returnToCategories)
         }
     }
+}
+function returnToCategories() {
+    //Returns quiz to page user sees when they arrive at the website
+    quizType = null;
+    currentCapitalsQuestionIndex = 0;
+    currentCountriesQuestionIndex = 0;
+
+    capitalsQuestionContainer.classList.add('hide');
+    countriesQuestionContainer.classList.add('hide');
+    capitalsAnswerButtons.classList.add('hide');
+    countriesAnswerButtons.classList.add('hide');
+
+    capitalsButton.style.display = 'inline-block';
+    countriesButton.style.display = 'inline-block';
+
+    nextButton.innerText = 'Next'; 
+    nextButton.style.background = '';
+    nextButton.classList.add = ('hide');
+
+    const title = document.getElementsByTagName('h1') [0];
+    title.innerText = 'Countries and Capitals Quiz';
+
+    //Prevent event stack by removing event listener
+    nextButton.removeEventListener('click', returnToCategories)
+}
+
+function lastQuestion() {
+    nextButton.innerText ='Return to Main Menu';
+    nextButton.style.background = 'blue';
+    nextButton.classList.remove('hide');
+    nextButton.addEventListener('click', returnToCategories, {once:true});
+}
 
 
 

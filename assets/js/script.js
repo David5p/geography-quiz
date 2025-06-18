@@ -81,12 +81,13 @@ let currentCountriesQuestionIndex = 0
 
 capitalsButton.addEventListener('click', startCapitalsGame)
 countriesButton.addEventListener('click', startCountriesGame)
+
 nextButton.addEventListener('click', () => {
      // Set the title text based on the quizType
     if (quizType === "capital") {
         currentCapitalsQuestionIndex ++
         setNextCapitalQuestion()
-    } else {
+    } else if {
         (quizType === "country")
         currentCountriesQuestionIndex ++
         setNextCountryQuestion()
@@ -96,6 +97,7 @@ nextButton.addEventListener('click', () => {
 
 
 function startCapitalsGame() {
+    quizType = "capital";
     console.log('let the capitals games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
@@ -109,6 +111,7 @@ function startCapitalsGame() {
 }
 
 function startCountriesGame() {
+    quizType = "capital";
     console.log('let the countries games begin')
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'

@@ -95,7 +95,7 @@ nextButton.addEventListener('click', () => {
   
 })
 
-
+// Allows the user to see the capitals questions
 function startCapitalsGame() {
     quizType = "capital";
     console.log('let the capitals games begin')
@@ -110,6 +110,7 @@ function startCapitalsGame() {
 
 }
 
+// Allows the user to see the countries questions
 function startCountriesGame() {
     quizType = "country";
     console.log('let the countries games begin')
@@ -124,6 +125,7 @@ function startCountriesGame() {
 
 }
 
+// Makes the host page versatile by changing the title depending on the game choice chosen
  function replaceTitle(quizType) {
     const title = document.getElementsByTagName("h1")[0];  // Gets the first <h1> element
     const newTitle = document.createElement("h1");
@@ -141,18 +143,20 @@ function startCountriesGame() {
 }
 
 
-
+// Makes the quiz flow from one question to another
     function setNextCountryQuestion() {
         resetState()
     showCountriesQuestion(shuffledCountriesQuestions[currentCountriesQuestionIndex])
 
 };
 
+// Makes the quiz flow from one question to another
 function setNextCapitalQuestion() {
     resetState()
     showCapitalsQuestion(shuffledCapitalQuestions[currentCapitalsQuestionIndex])
 };
 
+//Shows the capitals questions and creates new answer buttons
 function showCapitalsQuestion(question) {
     capitalsQuestionElement.innerText = question.question;
 
@@ -173,6 +177,7 @@ function showCapitalsQuestion(question) {
     capitalsQuestionContainer.classList.remove('hide'); // show question container
 }
 
+//Shows the countries questions and creates new answer buttons
 function showCountriesQuestion(question) {
     countriesQuestionElement.innerHTML = question.question;
 
@@ -193,6 +198,7 @@ function showCountriesQuestion(question) {
     countriesQuestionContainer.classList.remove('hide'); // show question container
 }
 
+//Resets the quiz after each question
 function resetState() {
     nextButtonContainer.classList.add('hide');
      nextButton.classList.add('hide');
@@ -206,7 +212,7 @@ function resetState() {
 }
 
 
-
+// Recognises correct answer and provides user with feedback
 function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === "true";
@@ -226,7 +232,7 @@ function selectAnswer(e) {
         alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText}`);
     }
     
-    //Determine to show next question or button to return to the main menu
+    //Determine to show the next question or button to return to the main menu
     if (quizType ==="capital") {
         if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
             nextButton.innerText = 'Next';
@@ -250,6 +256,7 @@ function selectAnswer(e) {
     }
 }
 
+//Preparation to return the user at the end of the quiz to return to the main menu getting the next button ready
 function backToMainMenu() {
     if (quizType === "capital") {
         if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
@@ -276,8 +283,8 @@ function backToMainMenu() {
         }
     }
 }
+// Resets the quiz ui and state. Returns quiz to page user sees when they arrive at the website
 function returnToCategories() {
-    //Returns quiz to page user sees when they arrive at the website
     quizType = null;
     currentCapitalsQuestionIndex = 0;
     currentCountriesQuestionIndex = 0;
@@ -302,6 +309,7 @@ function returnToCategories() {
     nextButton.removeEventListener('click', returnToCategories)
 }
 
+//Allows user to return to the main menu at the end of the quiz
 function lastQuestion() {
     nextButton.innerText ='Return to Main Menu';
     nextButton.style.background = 'blue';
@@ -313,7 +321,7 @@ function lastQuestion() {
 
 
 
-
+//Clears classes and then adds either correct or wrong based on whether the answer is right.
 function setStatusClass (element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -323,6 +331,7 @@ function setStatusClass (element, correct) {
     }
 }
 
+//removes any previous correct or wrong classes from a button
 function clearStatusClass (element) {
         element.classList.remove('correct');
         element.classList.remove('wrong');

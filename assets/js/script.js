@@ -1,6 +1,7 @@
 const capitalsButton = document.getElementById("capitals-btn")
 const countriesButton = document.getElementById("countries-btn")
-const nextButton = document.getElementById("nxt-btn")
+const nextButton = document.getElementById("next-btn")
+const nextButtonContainer = document.getElementById('nxt-btn');
 const capitalsAnswerButtons = document.getElementById('capitals-answer-btn')
 const capitalsQuestionContainer = document.getElementById('capitals-questions');
 const countriesQuestionContainer = document.getElementById('countries-questions');
@@ -8,7 +9,6 @@ const countriesAnswerButtons = document.getElementById('countries-answer-btn')
 const title = document.querySelectorAll('h1')
 const capitalsQuestionElement = document.getElementById('capitals-question-text');
 const countriesQuestionElement = document.getElementById('countries-question-text');
-
 
 let capitalsQuiz = [];
 
@@ -194,7 +194,9 @@ function showCountriesQuestion(question) {
 }
 
 function resetState() {
-    nextButton.classList.add('hide');
+    nextButtonContainer.classList.add('hide');
+     nextButton.classList.add('hide');
+    
     while (capitalsAnswerButtons.firstChild) {
         capitalsAnswerButtons.removeChild(capitalsAnswerButtons.firstChild);
     }
@@ -228,16 +230,20 @@ function selectAnswer(e) {
     if (quizType ==="capital") {
         if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
             nextButton.innerText = 'Next';
-            nextButton.style.background ='';
-            nextButton.classList.remove ('hide');
+            nextButton.style.background ='#00008B';
+            nextButton.classList.remove('hide');
+            nextButtonContainer.classList.remove('hide');
+
         } else {
             lastQuestion();
         }
-        else if (quizType ==="country") {
+        } else if (quizType ==="country") {
         if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
             nextButton.innerText = 'Next';
-            nextButton.style.background ='';
-            nextButton.classList.remove ('hide');
+            nextButton.style.background ='#00008B';
+            nextButton.classList.remove('hide');
+            nextButtonContainer.classList.remove('hide');
+            
         } else {
             lastQuestion();
         }
@@ -247,20 +253,23 @@ function selectAnswer(e) {
 function backToMainMenu() {
     if (quizType === "capital") {
         if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
-            nextButton.classList.remove('hide');
+            nextButtonContainer.classList.remove('hide');
         } else {
             nextButton.innerText = 'Return to main menu';
             nextButton.style.background = 'blue';
+            nextButtonContainer.classList.remove('hide');
             nextButton.classList.remove('hide');
 
             nextButton.addEventListener('click', returnToCategories)
         }
     } else if (quizType === "country") {
         if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
+            nextButtonContainer.classList.remove('hide');
             nextButton.classList.remove('hide');
         } else {
             nextButton.innerText = 'Return to main menu';
            nextButton.style.background = 'blue';
+           nextButtonContainer.classList.remove('hide');
            nextButton.classList.remove('hide');
 
            nextButton.addEventListener('click', returnToCategories)
@@ -282,8 +291,9 @@ function returnToCategories() {
     countriesButton.style.display = 'inline-block';
 
     nextButton.innerText = 'Next'; 
-    nextButton.style.background = '';
-    nextButton.classList.add = ('hide');
+    nextButton.style.background = 'blue';
+    nextButtonContainer.classList.add('hide');
+    nextButton.classList.remove('hide');
 
     const title = document.getElementsByTagName('h1') [0];
     title.innerText = 'Countries and Capitals Quiz';
@@ -295,6 +305,7 @@ function returnToCategories() {
 function lastQuestion() {
     nextButton.innerText ='Return to Main Menu';
     nextButton.style.background = 'blue';
+    nextButtonContainer.classList.remove('hide');
     nextButton.classList.remove('hide');
     nextButton.addEventListener('click', returnToCategories, {once:true});
 }

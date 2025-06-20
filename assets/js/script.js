@@ -9,6 +9,7 @@ const countriesAnswerButtons = document.getElementById('countries-answer-btn')
 const title = document.querySelectorAll('h1')
 const capitalsQuestionElement = document.getElementById('capitals-question-text');
 const countriesQuestionElement = document.getElementById('countries-question-text');
+const exitButton = document.getElementById('exit-btn')
 
 let capitalsQuiz = [];
 
@@ -108,6 +109,8 @@ function startCapitalsGame() {
 
    setNextCapitalQuestion();
 
+   exitButton.classList.remove('hide');
+
 }
 
 // Allows the user to see the countries questions
@@ -122,6 +125,8 @@ function startCountriesGame() {
     replaceTitle("country");
 
     setNextCountryQuestion();
+
+    exitButton.classList.remove('hide');
 
 }
 
@@ -300,10 +305,12 @@ function returnToCategories() {
     nextButton.innerText = 'Next'; 
     nextButton.style.background = 'blue';
     nextButtonContainer.classList.add('hide');
-    nextButton.classList.remove('hide');
+    nextButton.classList.add('hide');
 
     const title = document.getElementsByTagName('h1') [0];
     title.innerText = 'Countries and Capitals Quiz';
+
+    exitButton.classList.add('hide');
 
     //Prevent event stack by removing event listener
     nextButton.removeEventListener('click', returnToCategories)
@@ -338,3 +345,8 @@ function clearStatusClass (element) {
     }
 
 
+exitButton.addEventListener('click', () => {
+    const confirmExit = confirm("Are you sure you want to exit the quiz?")
+        if (confirmExit) {
+        returnToCategories();
+}});

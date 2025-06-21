@@ -170,7 +170,7 @@ function showCapitalsQuestion(question) {
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
-        button.classList.add('btn', 'btn-primary', 'col-6', 'col-md-5');
+        button.classList.add('col-6', 'col-md-5', 'answer-btn');
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
@@ -191,7 +191,7 @@ function showCountriesQuestion(question) {
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
-        button.classList.add('btn', 'btn-primary', 'col-6', 'col-md-5');
+        button.classList.add('col-6', 'col-md-5', 'answer-btn');
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }

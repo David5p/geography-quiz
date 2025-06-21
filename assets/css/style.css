@@ -5,7 +5,7 @@
 /* CSS Variables */
 :root {
     --primary-font: "Outfit", sans-serif;
-    --secondary-font: "Josefin sans", sans-serif;
+    --secondary-font: "Josefin Sans", sans-serif;
     --primary-color: #285862;
     /* dark blue */
     --secondary-color:white;
@@ -52,29 +52,65 @@ div.quiz-area.container {
     align-content: center;
 }
 .answer-btn {
-
+  font-size: large;
+  font-weight: bold;
+  color: #3b2f2b;
+  background-color: #b0a78f;
+  border: 4px solid #445c56;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 600px;
+  display: block;
 }
 
-
-.score-area {
-    margin-top: 1rem;
+.answer-btn:hover {
+  background-color: #b5c3c6;
+  color: #3b2f2b;
+  cursor: pointer;
 }
+
+.answer-btn.correct {
+  background-color: darkgreen;
+  color: white;
+  border-color: darkgreen;
+}
+
+.answer-btn.wrong {
+  background-color: darkred;
+  color: white;
+  border-color: darkred;
+}
+
 #nxt-btn button {
   max-width: 200px;
   width: 100%;
+}
+#next-btn {
+    background-color: #e7f4f4 !important;
+    color: #3b2f2b !important;
+    font-weight: bold;
+    border: 4px solid #8a7c60;
+    border-radius: 10px;
+}
+
+#next-btn:hover {
+  background-color: #b5c3c6 !important;
+  color: #3b2f2b !important;
+  cursor: pointer;
 }
 
 .btn {
     margin-right: 1rem;
     margin-top: 2rem;
 }
-.hide{
-    display: none !important;
-}
-.correct {
-background-color: darkgreen !important;
+
+
+.score-area {
+    margin-top: 1rem;
 }
 
-.wrong {
-background-color: darkred !important;
+.hide{
+    display: none !important;
 }

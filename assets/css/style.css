@@ -36,12 +36,26 @@ div.quiz-area.container {
     max-width: 80%;
     border-radius: 5px;
     padding:10px;
+}
+.questions-text{
+    font-size: x-large;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 10px;
+    color: #000000;
+    background-color: #abaea3;
+    border: 3px solid white;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    align-content: center;
+}
+.answer-btn {
 
 }
 
-#answer-buttons {
-    margin-top: 2rem;
-}
+
 .score-area {
     margin-top: 1rem;
 }

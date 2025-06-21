@@ -1,15 +1,16 @@
-const capitalsButton = document.getElementById("capitals-btn")
-const countriesButton = document.getElementById("countries-btn")
-const nextButton = document.getElementById("next-btn")
+const capitalsButton = document.getElementById("capitals-btn");
+const countriesButton = document.getElementById("countries-btn");
+const nextButton = document.getElementById("next-btn");
 const nextButtonContainer = document.getElementById('nxt-btn');
 const capitalsAnswerButtons = document.getElementById('capitals-answer-btn')
 const capitalsQuestionContainer = document.getElementById('capitals-questions');
 const countriesQuestionContainer = document.getElementById('countries-questions');
-const countriesAnswerButtons = document.getElementById('countries-answer-btn')
-const title = document.querySelectorAll('h1')
+const countriesAnswerButtons = document.getElementById('countries-answer-btn');
+const title = document.querySelectorAll('h1');
 const capitalsQuestionElement = document.getElementById('capitals-question-text');
 const countriesQuestionElement = document.getElementById('countries-question-text');
-const exitButton = document.getElementById('exit-btn')
+const exitButton = document.getElementById('exit-btn');
+const scoreArea = document.getElementById('score-area');
 
 let capitalsQuiz = [];
 
@@ -104,6 +105,7 @@ function startCapitalsGame() {
     document.getElementById('countries-btn').style.display = 'none'
     capitalsQuestionContainer.classList.remove('hide');
     capitalsAnswerButtons.classList.remove('hide');
+    scoreArea.classList.remove('hide');
    
    replaceTitle("capital");
 
@@ -121,6 +123,7 @@ function startCountriesGame() {
     document.getElementById('countries-btn').style.display = 'none'
     countriesQuestionContainer.classList.remove('hide');
     countriesAnswerButtons.classList.remove('hide');
+     scoreArea.classList.remove('hide');
 
     replaceTitle("country");
 
@@ -181,8 +184,9 @@ function showCapitalsQuestion(question) {
     capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
     capitalsQuestionContainer.classList.remove('hide'); // show question container
 }
-
-//Shows the countries questions and creates new answer buttons
+/*
+* Shows the countries questions and creates new answer buttons
+*/
 function showCountriesQuestion(question) {
     countriesQuestionElement.innerHTML = question.question;
 
@@ -201,6 +205,7 @@ function showCountriesQuestion(question) {
 
     countriesAnswerButtons.classList.remove('hide'); // show answer buttons
     countriesQuestionContainer.classList.remove('hide'); // show question container
+
 }
 
 //Resets the quiz after each question
@@ -231,10 +236,12 @@ function selectAnswer(e) {
     // Show feedback to user
     if (correct) {
         alert("Well Done!");
+        incrementScore();
     } else {
         const allButtons = Array.from(selectedButton.parentElement.children);
         const correctAnswer = allButtons.find(btn => btn.dataset.correct === "true");
         alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText}`);
+        incrementWrongAnswer();
     }
     
     //Determine to show the next question or button to return to the main menu
@@ -259,6 +266,26 @@ function selectAnswer(e) {
             lastQuestion();
         }
     }
+}
+/**
+ * Gets the current score from the DOM and increments it by 1
+ */
+function incrementScore() {
+    
+    let oldScore = parseInt(document.getElementById('correct').innerText);
+    document.getElementById('correct').innerText = ++oldScore;
+
+}
+
+/**
+ * Gets the current score of incorrect answers from the DOM and increments it by 1
+ */
+
+function incrementWrongAnswer() {
+    
+    let oldScore = parseInt(document.getElementById('incorrect').innerText);
+    document.getElementById('incorrect').innerText = ++oldScore;
+
 }
 
 //Preparation to return the user at the end of the quiz to return to the main menu getting the next button ready

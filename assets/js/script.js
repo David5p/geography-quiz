@@ -357,37 +357,34 @@ function backToMainMenu() {
     }
 }
 // Resets the quiz ui and state. Returns quiz to page user sees when they arrive at the website
+// Return to main menu UI and reset states
 function returnToCategories() {
-    quizType = null;
-    currentCapitalsQuestionIndex = 0;
-    currentCountriesQuestionIndex = 0;
+  quizType = null;
+  currentCapitalsQuestionIndex = 0;
+  currentCountriesQuestionIndex = 0;
 
-    capitalsQuestionContainer.classList.add('hide');
-    countriesQuestionContainer.classList.add('hide');
-    capitalsAnswerButtons.classList.add('hide');
-    countriesAnswerButtons.classList.add('hide');
-    scoreArea.classList.add('hide');
+  document.getElementById('capitals-questions').classList.add('hide');
+  document.getElementById('countries-questions').classList.add('hide');
+  document.getElementById('capitals-answer-btn').classList.add('hide');
+  document.getElementById('countries-answer-btn').classList.add('hide');
+  scoreArea.classList.add('hide');
 
-    capitalsButton.style.display = 'inline-block';
-    countriesButton.style.display = 'inline-block';
+  capitalsButton.style.display = 'inline-block';
+  countriesButton.style.display = 'inline-block';
 
-    nextButton.classList.remove('bold-large-button');
-    nextButton.innerText = 'Next'; 
-    nextButton.style.background = 'blue';
-    nextButtonContainer.classList.add('hide');
-    nextButton.classList.add('hide');
+  nextButton.classList.remove('bold-large-button');
+  nextButton.innerText = 'Next';
+  nextButton.style.background = 'blue';
+  nextButtonContainer.classList.add('hide');
+  nextButton.classList.add('hide');
 
+  const title = document.getElementsByTagName('h1')[0];
+  title.innerText = 'Countries and Capitals Quiz';
 
+  exitButton.classList.add('hide');
 
-    const title = document.getElementsByTagName('h1') [0];
-    title.innerText = 'Countries and Capitals Quiz';
-
-    exitButton.classList.add('hide');
-    document.getElementById('correct').innerText = 0;
-    document.getElementById('incorrect').innerText = 0;
-
-    //Prevent event stack by removing event listener
-    nextButton.removeEventListener('click', returnToCategories)
+  document.getElementById('correct').innerText = 0;
+  document.getElementById('incorrect').innerText = 0;
 }
 
 //Allows user to return to the main menu at the end of the quiz

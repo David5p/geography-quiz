@@ -219,7 +219,7 @@ function showCountriesQuestion(question) {
 const countriesQuestionElement = document.getElementById('countries-question-text');
 const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 
-    capitalsQuestionElement.innerText = question.question;
+    countriesQuestionElement.innerText = question.question;
 
     countriesAnswerButtons.innerHTML = ''; // clear previous buttons
 
@@ -274,7 +274,7 @@ function selectAnswer(e) {
     } else { const correctButton = Array.from(parent.children)
         .find
         (btn => btn.dataset.correct === "true");
-        alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText}`);
+        alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctButton.innerText}`);
         incrementWrongAnswer();
     }
     

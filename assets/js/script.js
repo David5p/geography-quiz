@@ -301,6 +301,14 @@ function selectAnswer(e) {
         }
     }
 }
+
+function showNextButton () {
+    nextButton.innerText = 'Next';
+    nextButton.style.background = '#00008B';
+    nextButton.classList.remove('hide');
+    nextButtonContainer.classList.remove('hide');
+}
+
 /**
  * Gets the current score from the DOM and increments it by 1
  */

@@ -110,6 +110,11 @@ div.quiz-area.container {
     margin-top: 2rem;
 }
 
+.bold-large-button {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 
 #score-area {
     margin-top: 2rem;

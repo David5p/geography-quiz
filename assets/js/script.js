@@ -11,11 +11,10 @@ const capitalsQuestionElement = document.getElementById('capitals-question-text'
 const countriesQuestionElement = document.getElementById('countries-question-text');
 const exitButton = document.getElementById('exit-btn');
 const scoreArea = document.getElementById('score-area');
-
+let shuffledCapitalQuestions = [];
+let shuffledCountriesQuestions = [];
 let capitalsQuiz = [];
-
 let countriesQuiz = [];
-
 let quizType = null;
 
 
@@ -75,32 +74,38 @@ fetch('questions.json')
   .catch(err => console.error('Error loading questions:', err));
 
 
-let shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5)
 let currentCapitalsQuestionIndex = 0
-
-let shuffledCountriesQuestions = countriesQuiz.sort(() => Math.random() - 0.5)
 let currentCountriesQuestionIndex = 0
 
 capitalsButton.addEventListener('click', startCapitalsGame)
 countriesButton.addEventListener('click', startCountriesGame)
 
 nextButton.addEventListener('click', () => {
-     // Set the title text based on the quizType
     if (quizType === "capital") {
-        currentCapitalsQuestionIndex ++
-        setNextCapitalQuestion()
-    } else if
-        (quizType === "country")
-        {currentCountriesQuestionIndex ++
-        setNextCountryQuestion()
+        if (currentCapitalsQuestionIndex < shuffledCapitalQuestions.length - 1) {
+            currentCapitalsQuestionIndex++;
+            setNextCapitalQuestion();
+        } else {
+            lastQuestion();
+        }
+    } else if (quizType === "country") {
+        if (currentCountriesQuestionIndex < shuffledCountriesQuestions.length - 1) {
+            currentCountriesQuestionIndex++;
+            setNextCountryQuestion();
+        } else {
+            lastQuestion();
+        }
     }
-  
-})
+});
 
 // Allows the user to see the capitals questions
 function startCapitalsGame() {
     quizType = "capital";
     console.log('let the capitals games begin')
+
+    shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
+    currentCapitalsQuestionIndex = 0;
+
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
     capitalsQuestionContainer.classList.remove('hide');
@@ -119,6 +124,10 @@ function startCapitalsGame() {
 function startCountriesGame() {
     quizType = "country";
     console.log('let the countries games begin')
+
+    shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
+    currentCountriesQuestionIndex = 0;
+
     document.getElementById('capitals-btn').style.display = 'none'
     document.getElementById('countries-btn').style.display = 'none'
     countriesQuestionContainer.classList.remove('hide');
@@ -295,7 +304,6 @@ function backToMainMenu() {
             nextButtonContainer.classList.remove('hide');
         } else {
             nextButton.innerText = 'Return to main menu';
-            nextButton.style.background = 'blue';
             nextButtonContainer.classList.remove('hide');
             nextButton.classList.remove('hide');
 
@@ -325,19 +333,25 @@ function returnToCategories() {
     countriesQuestionContainer.classList.add('hide');
     capitalsAnswerButtons.classList.add('hide');
     countriesAnswerButtons.classList.add('hide');
+    scoreArea.classList.add('hide');
 
     capitalsButton.style.display = 'inline-block';
     countriesButton.style.display = 'inline-block';
 
+    nextButton.classList.remove('bold-large-button');
     nextButton.innerText = 'Next'; 
     nextButton.style.background = 'blue';
     nextButtonContainer.classList.add('hide');
     nextButton.classList.add('hide');
 
+
+
     const title = document.getElementsByTagName('h1') [0];
     title.innerText = 'Countries and Capitals Quiz';
 
     exitButton.classList.add('hide');
+    document.getElementById('correct').innerText = 0;
+    document.getElementById('incorrect').innerText = 0;
 
     //Prevent event stack by removing event listener
     nextButton.removeEventListener('click', returnToCategories)
@@ -346,7 +360,7 @@ function returnToCategories() {
 //Allows user to return to the main menu at the end of the quiz
 function lastQuestion() {
     nextButton.innerText ='Return to Main Menu';
-    nextButton.style.background = 'blue';
+    nextButton.classList.add('bold-large-button');
     nextButtonContainer.classList.remove('hide');
     nextButton.classList.remove('hide');
     nextButton.addEventListener('click', returnToCategories, {once:true});

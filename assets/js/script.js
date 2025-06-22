@@ -243,7 +243,9 @@ const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 function resetState() {
     nextButtonContainer.classList.add('hide');
      nextButton.classList.add('hide');
-    
+ const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
+  const countriesAnswerButtons = document.getElementById('countries-answer-btn');
+
     while (capitalsAnswerButtons.firstChild) {
         capitalsAnswerButtons.removeChild(capitalsAnswerButtons.firstChild);
     }
@@ -259,8 +261,9 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct === "true";
 
     // Mark all buttons and disable them
-    Array.from(selectedButton.parentElement.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct === "true");
+    const parent = selectedButton.parentElement;
+    Array.from(parent.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct === "true");
         button.disabled = true;
     });
 
@@ -268,9 +271,9 @@ function selectAnswer(e) {
     if (correct) {
         alert("Well Done!");
         incrementScore();
-    } else {
-        const allButtons = Array.from(selectedButton.parentElement.children);
-        const correctAnswer = allButtons.find(btn => btn.dataset.correct === "true");
+    } else { const correctButton = Array.from(parent.children)
+        .find
+        (btn => btn.dataset.correct === "true");
         alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctAnswer.innerText}`);
         incrementWrongAnswer();
     }

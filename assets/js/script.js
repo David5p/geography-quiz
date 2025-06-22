@@ -85,67 +85,48 @@ exitButton.addEventListener('click', () => {
   }
 });
 
-nextButton.addEventListener('click', () => {
-    if (quizType === "capital") {
-        if (currentCapitalsQuestionIndex < shuffledCapitalQuestions.length - 1) {
-            currentCapitalsQuestionIndex++;
-            setNextCapitalQuestion();
-        } else {
-            lastQuestion();
-        }
-    } else if (quizType === "country") {
-        if (currentCountriesQuestionIndex < shuffledCountriesQuestions.length - 1) {
-            currentCountriesQuestionIndex++;
-            setNextCountryQuestion();
-        } else {
-            lastQuestion();
-        }
-    }
-});
-
 // Allows the user to see the capitals questions
 function startCapitalsGame() {
-    quizType = "capital";
-    console.log('let the capitals games begin')
+  quizType = "capital";
+  currentCapitalsQuestionIndex = 0;
+  shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
 
-    shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
-    currentCapitalsQuestionIndex = 0;
+  capitalsButton.style.display = 'none';
+  countriesButton.style.display = 'none';
 
-    document.getElementById('capitals-btn').style.display = 'none'
-    document.getElementById('countries-btn').style.display = 'none'
-    capitalsQuestionContainer.classList.remove('hide');
-    capitalsAnswerButtons.classList.remove('hide');
-    scoreArea.classList.remove('hide');
-   
-   replaceTitle("capital");
+  const capitalsQuestionContainer = document.getElementById('capitals-questions');
+  const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
+  capitalsQuestionContainer.classList.remove('hide');
+  capitalsAnswerButtons.classList.remove('hide');
+  scoreArea.classList.remove('hide');
 
-   setNextCapitalQuestion();
-
-   exitButton.classList.remove('hide');
-
+  replaceTitle("capital");
+  setNextCapitalQuestion();
+  exitButton.classList.remove('hide');
 }
+
+
 
 // Allows the user to see the countries questions
 function startCountriesGame() {
-    quizType = "country";
-    console.log('let the countries games begin')
+  quizType = "country";
+  currentCountriesQuestionIndex = 0;
+  shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
 
-    shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
-    currentCountriesQuestionIndex = 0;
+  capitalsButton.style.display = 'none';
+  countriesButton.style.display = 'none';
 
-    document.getElementById('capitals-btn').style.display = 'none'
-    document.getElementById('countries-btn').style.display = 'none'
-    countriesQuestionContainer.classList.remove('hide');
-    countriesAnswerButtons.classList.remove('hide');
-     scoreArea.classList.remove('hide');
+  const countriesQuestionContainer = document.getElementById('countries-questions');
+  const countriesAnswerButtons = document.getElementById('countries-answer-btn');
+  countriesQuestionContainer.classList.remove('hide');
+  countriesAnswerButtons.classList.remove('hide');
+  scoreArea.classList.remove('hide');
 
-    replaceTitle("country");
-
-    setNextCountryQuestion();
-
-    exitButton.classList.remove('hide');
-
+  replaceTitle("country");
+  setNextCountryQuestion();
+  exitButton.classList.remove('hide');
 }
+
 
 // Makes the host page versatile by changing the title depending on the game choice chosen
  function replaceTitle(quizType) {

@@ -129,21 +129,38 @@ function startCountriesGame() {
 
 
 // Makes the host page versatile by changing the title depending on the game choice chosen
- function replaceTitle(quizType) {
-    const title = document.getElementsByTagName("h1")[0];  // Gets the first <h1> element
-    const newTitle = document.createElement("h1");
-
-    // Set the title text based on the quizType
-    if (quizType === "capital") {
-        newTitle.textContent = 'Capitals Quiz';
-    } else if (quizType === "country") {
-        newTitle.textContent = 'Country Quiz';
-    } else {
-        newTitle.textContent = 'Countrys and capitals Quiz'; // Default title if no valid type is provided
-    }
-
-    title.replaceWith(newTitle);
+function replaceTitle(type) {
+  const oldTitle = document.getElementsByTagName("h1")[0];
+  const newTitle = document.createElement("h1");
+  if (type === "capital") {
+    newTitle.textContent = 'Capitals Quiz';
+  } else if (type === "country") {
+    newTitle.textContent = 'Country Quiz';
+  } else {
+    newTitle.textContent = 'Countries and Capitals Quiz';
+  }
+  oldTitle.replaceWith(newTitle);
 }
+
+// Handle next button click for both quizzes so no need for function in event listener
+function handleNextButtonClick() {
+  if (quizType === "capital") {
+    if (currentCapitalsQuestionIndex < shuffledCapitalQuestions.length - 1) {
+      currentCapitalsQuestionIndex++;
+      setNextCapitalQuestion();
+    } else {
+      lastQuestion();
+    }
+  } else if (quizType === "country") {
+    if (currentCountriesQuestionIndex < shuffledCountriesQuestions.length - 1) {
+      currentCountriesQuestionIndex++;
+      setNextCountryQuestion();
+    } else {
+      lastQuestion();
+    }
+  }
+}
+
 
 
 // Makes the quiz flow from one question to another

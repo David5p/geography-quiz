@@ -177,6 +177,13 @@ function setNextCapitalQuestion() {
 function showCapitalsQuestion(question) {
     capitalsQuestionElement.innerText = question.question;
 
+    if (!question) {
+        console.log("Error! Attempted to show capitals question but returned undefined");
+        alert("Oops! There are no more questions.");
+        returnToCategories();
+        return;
+    }
+
     capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
 
     question.answers.forEach(answer => {
@@ -198,6 +205,12 @@ function showCapitalsQuestion(question) {
 */
 function showCountriesQuestion(question) {
     countriesQuestionElement.innerHTML = question.question;
+    if (!question) {
+        console.log("Error! Attempted to show countries question but returned undefined");
+        alert("Oops! There are no more questions.");
+        returnToCategories();
+        return;
+    }
 
     countriesAnswerButtons.innerHTML = ''; // clear previous buttons
 

@@ -178,7 +178,6 @@ function setNextCapitalQuestion() {
 
 //Shows the capitals questions and creates new answer buttons
 function showCapitalsQuestion(question) {
-    capitalsQuestionElement.innerText = question.question;
 
     if (!question) {
         console.log("Error! Attempted to show capitals question but returned undefined");
@@ -187,8 +186,11 @@ function showCapitalsQuestion(question) {
         return;
     }
 
-    capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
+const capitalsQuestionElement = document.getElementById('capitals-question-text');
+const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
 
+    capitalsQuestionElement.innerText = question.question;
+    capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
@@ -201,19 +203,23 @@ function showCapitalsQuestion(question) {
     });
 
     capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
-    capitalsQuestionContainer.classList.remove('hide'); // show question container
+    document.getElementById('capitals-questions').classList.remove('hide'); // show question container
 }
 /*
 * Shows the countries questions and creates new answer buttons
 */
 function showCountriesQuestion(question) {
-    countriesQuestionElement.innerHTML = question.question;
     if (!question) {
         console.log("Error! Attempted to show countries question but returned undefined");
         alert("Oops! There are no more questions.");
         returnToCategories();
         return;
     }
+
+const countriesQuestionElement = document.getElementById('countries-question-text');
+const countriesAnswerButtons = document.getElementById('countries-answer-btn');
+
+    capitalsQuestionElement.innerText = question.question;
 
     countriesAnswerButtons.innerHTML = ''; // clear previous buttons
 
@@ -229,7 +235,7 @@ function showCountriesQuestion(question) {
     });
 
     countriesAnswerButtons.classList.remove('hide'); // show answer buttons
-    countriesQuestionContainer.classList.remove('hide'); // show question container
+    document.getElementById('countries-questions').classList.remove('hide'); // show question container
 
 }
 

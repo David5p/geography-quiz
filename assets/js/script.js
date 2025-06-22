@@ -1,21 +1,20 @@
-const capitalsButton = document.getElementById("capitals-btn");
-const countriesButton = document.getElementById("countries-btn");
-const nextButton = document.getElementById("next-btn");
-const nextButtonContainer = document.getElementById('nxt-btn');
-const capitalsAnswerButtons = document.getElementById('capitals-answer-btn')
-const capitalsQuestionContainer = document.getElementById('capitals-questions');
-const countriesQuestionContainer = document.getElementById('countries-questions');
-const countriesAnswerButtons = document.getElementById('countries-answer-btn');
-const title = document.querySelectorAll('h1');
-const capitalsQuestionElement = document.getElementById('capitals-question-text');
-const countriesQuestionElement = document.getElementById('countries-question-text');
-const exitButton = document.getElementById('exit-btn');
-const scoreArea = document.getElementById('score-area');
+// Shared variables which need to be kept global for multiple functions to access them
 let shuffledCapitalQuestions = [];
 let shuffledCountriesQuestions = [];
 let capitalsQuiz = [];
 let countriesQuiz = [];
 let quizType = null;
+let currentCapitalsQuestionIndex = 0;
+let currentCountriesQuestionIndex = 0;
+
+//Buttons that are accessed globally and used in many functions
+const capitalsButton = document.getElementById("capitals-btn");
+const countriesButton = document.getElementById("countries-btn");
+const nextButton = document.getElementById("next-btn");
+const nextButtonContainer = document.getElementById('nxt-btn');
+const exitButton = document.getElementById('exit-btn');
+const scoreArea = document.getElementById('score-area');
+
 
 
 //Disable buttons 
@@ -23,6 +22,9 @@ let quizType = null;
 capitalsButton.disabled = true;
 
 countriesButton.disabled = true;
+
+
+// Load questions from JSON and initialize quizzes
 
 fetch('questions.json')
 
@@ -60,9 +62,8 @@ fetch('questions.json')
 
     // Questions shuffle after loading
 
-    shuffledCapitalQuestions = capitalsQuiz.sort(() => Math.random() - 0.5);
-
-    shuffledCountriesQuestions = countriesQuiz.sort(() => Math.random() - 0.5);
+    shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
+    shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
 
     //Enable buttons
      capitalsButton.disabled = false;
@@ -74,11 +75,15 @@ fetch('questions.json')
   .catch(err => console.error('Error loading questions:', err));
 
 
-let currentCapitalsQuestionIndex = 0
-let currentCountriesQuestionIndex = 0
-
-capitalsButton.addEventListener('click', startCapitalsGame)
-countriesButton.addEventListener('click', startCountriesGame)
+// Event listeners
+capitalsButton.addEventListener('click', startCapitalsGame);
+countriesButton.addEventListener('click', startCountriesGame);
+nextButton.addEventListener('click', handleNextButtonClick);
+exitButton.addEventListener('click', () => {
+  if (confirm("Are you sure you want to exit the quiz?")) {
+    returnToCategories();
+  }
+});
 
 nextButton.addEventListener('click', () => {
     if (quizType === "capital") {

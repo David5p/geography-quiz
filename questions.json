@@ -57,7 +57,7 @@
     },
     {
       "question": "What is the capital city of Costa Rica?",
-      "options": ["Cartago", "San José", "liberia", "Jaco"],
+      "options": ["Cartago", "San José", "Liberia", "Jaco"],
       "answer": "San José"
     },
     {
@@ -81,7 +81,7 @@
       "answer": "Shanghai"
     },
     {
-      "question": "Which of these is not a capital city in Australasia",
+      "question": "Which of these is not a capital city in Australasia?",
       "options": ["Canberra", "Wellington", "Apia", "Auckland"],
       "answer": "Auckland"
     },
@@ -178,22 +178,22 @@
     },
 
     {
-      "question": "How many countries are in Europe geographically",
+      "question": "How many countries are in Europe geographically?",
       "options": ["34", "50", "42", "55"],
       "answer": "50"
     },
   {
-      "question": "How many countries are in Asia geographically",
+      "question": "How many countries are in Asia geographically?",
       "options": ["41", "60", "49", "37"],
       "answer": "49"
     },
     {
-      "question": "How many countries are in South America geographically",
+      "question": "How many countries are in South America geographically?",
       "options": ["12", "14", "16", "11"],
       "answer": "12"
     },
     {
-      "question": "How many countries are in Central America geographically",
+      "question": "How many countries are in Central America geographically?",
       "options": ["8", "6", "10", "7"],
       "answer": "7"
     },

@@ -185,6 +185,17 @@ function handleNextButtonClick() {
   }
 }
 
+function boldWords (text) {
+  
+const wordsToBold = ["not", "one"]
+
+wordsToBold.forEach(word => {const regex = new RegExp(`\\b${word}\\b`, 'gi');
+    text = text.replace(regex, `<strong>${word}</strong>`);
+  });
+
+  return text;
+}
+
 
 
 // Makes the quiz flow from one question to another
@@ -213,7 +224,7 @@ function showCapitalsQuestion(question) {
 const capitalsQuestionElement = document.getElementById('capitals-question-text');
 const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
 
-    capitalsQuestionElement.innerText = question.question;
+    capitalsQuestionElement.innerHTML = boldWords(question.question);
     capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
     question.answers.forEach(answer => {
         const button = document.createElement('button');
@@ -243,7 +254,7 @@ function showCountriesQuestion(question) {
 const countriesQuestionElement = document.getElementById('countries-question-text');
 const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 
-    countriesQuestionElement.innerText = question.question;
+    countriesQuestionElement.innerHTML = boldWords(question.question);
 
     countriesAnswerButtons.innerHTML = ''; // clear previous buttons
 

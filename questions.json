@@ -1,7 +1,7 @@
 {
   "capitalsQuestions": [
     {
-      "question": "Which of these is not a capital city in Europe?",
+      "question": "Which of one of these is not a capital city in Europe?",
       "options": ["Zurich", "Brussels", "Lisbon", "Ljubljana"],
       "answer": "Zurich"
     },
@@ -11,7 +11,7 @@
       "answer": "Riga"
     },
     {
-      "question": "Which of these is a capital city in South America?",
+      "question": "Which of one of these is a capital city in South America?",
       "options": ["Guimaraes", "Córdoba", "Aveiro", "Lima"],
       "answer": "Lima"
     },
@@ -71,27 +71,27 @@
       "answer": "Harare"
     },
     {
-      "question": "Which of these is not a capital city in Africa?",
+      "question": "Which one of these is not a capital city in Africa?",
       "options": ["Johannesburg", "Cairo", "Abuja", "Accra"],
       "answer": "Johannesburg"
     },
     {
-      "question": "Which of these is not a capital city in Asia?",
+      "question": "Which one of these is not a capital city in Asia?",
       "options": ["Seoul", "Tokyo", "Shanghai", "Dhaka"],
       "answer": "Shanghai"
     },
     {
-      "question": "Which of these is not a capital city in Australasia?",
+      "question": "Which one of these is not a capital city in Australasia?",
       "options": ["Canberra", "Wellington", "Apia", "Auckland"],
       "answer": "Auckland"
     },
     {
-      "question": "Which of these is not a capital city in Europe?",
+      "question": "Which one of these is not a capital city in Europe?",
       "options": ["Berlin", "Belgrade", "Belfast", "Barcelona"],
       "answer": "Barcelona"
     },
     {
-      "question": "Which of these is a capital city in Asia?",
+      "question": "Which one of these is a capital city in Asia?",
       "options": ["Busan", "Hanoi", "Osaka", "Pattaya City"],
       "answer": "Hanoi"
     },
@@ -103,39 +103,39 @@
   ],
   "countriesQuestions": [
     {
-      "question": "Which of these is not considered a country?",
+      "question": "Which one of these is not considered a country?",
       "options": ["Monaco", "Singapore", "Santo Domingo", "Vatican City"],
       "answer": "Santo Domingo"
     },
     {
-      "question": "Which of these is not a country in Africa?",
+      "question": "Which one of these is not a country in Africa?",
       "options": ["Botswana", "Mali", "DR Congo", "Barbados"],
       "answer": "Barbados"
     },
     {
-      "question": "Which of these is not a country in South America?",
+      "question": "Which one of these is not a country in South America?",
       "options": ["Bolivia", "Colombia", "Costa Rica", "Guyana"],
       "answer": "Costa Rica"
     },
     {
-      "question": "Which of these is not a country in Europe?",
+      "question": "Which one of these is not a country in Europe?",
       "options": ["Latvia", "Israel", "Malta", "Luxembourg"],
       "answer": "Israel"
     },
      {
-      "question": "Which of these is not a country in Central America?",
+      "question": "Which one of these is not a country in Central America?",
       "options": ["Uruguay", "El Salvador", "Honduras", "Belize"],
       "answer": "Uruguay"
     },
 
     {
-      "question": "Which of these is not a country in Australasia?",
+      "question": "Which one of these is not a country in Australasia?",
       "options": ["Fiji", "Papua New Guinea", "Vietnam", "New Zealand"],
       "answer": "Vietnam"
     },
 
     {
-      "question": "Which of these is not a country in Asia?",
+      "question": "Which one of these is not a country in Asia?",
       "options": ["Moldova", "Turkey", "Cyprus", "Iran"],
       "answer": "Moldova"
     },
@@ -166,7 +166,7 @@
     },
 
     {
-      "question": "Which of one of these counties do not border Turkey?",
+      "question": "Which one of these counties do not border Turkey?",
       "options": ["Romania", "Greece", "Bulgaria", "Iraq"],
       "answer": "Romania"
     },

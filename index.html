@@ -16,8 +16,8 @@
 <body>
     <h1 class="main-heading">Countries and Capitals Quiz</h1>
     <img class="logo" src="assets/images/globe1.jpg" alt="globe of the planet Earth">
-
-    <div class="question-type container">
+    <main>
+        <section class= "question-type container">
             <button id="capitals-btn" class ="btn btn-primary col-5 col-md-3">Capitals</button>
             <button id="countries-btn" class="btn btn-primary col-5 col-md-3">Countries</button>
         
@@ -38,16 +38,16 @@
         <div id="nxt-btn" class="d-flex justify-content-center">
             <button id = "next-btn" class="hide btn btn-warning px-4 px-sm-5">Next</button>
 </div>
-    </div>
-<div id = "score-area" class="hide">
-<p class="scores">Correct answers: <span id ="correct">0</span></p>
-<p class="scores">Incorrect answers: <span id ="incorrect">0</span></p>
-</div> 
 <div class="d-flex justify-content-center my-3">
   <button id="exit-btn" class="btn btn-danger hide">Exit Quiz</button>
+    </section>
+
+<sectionid id = "score-area" class="hide">
+<p class="scores">Correct answers: <span id ="correct">0</span></p>
+<p class="scores">Incorrect answers: <span id ="incorrect">0</span></p>
 </div>
-
-
+</section>
+</main>
 </body>
    
 <script src="assets/js/script.js"></script>

@@ -404,9 +404,7 @@ function returnToCategories() {
   const title = document.getElementsByTagName('h1')[0];
   title.innerText = 'Countries and Capitals Quiz';
 
- showExitButton();
-  // Reattach exit listener as it has been removed
-  exitButton.addEventListener('click', handleExitClick);
+ exitButton.classList.add('hide');
 
   document.getElementById('correct').innerText = 0;
   document.getElementById('incorrect').innerText = 0;

@@ -6,6 +6,7 @@ let countriesQuiz = [];
 let quizType = null;
 let currentCapitalsQuestionIndex = 0;
 let currentCountriesQuestionIndex = 0;
+let ExitListenerAttached = false;
 
 //Buttons that are accessed globally and used in many functions
 const capitalsButton = document.getElementById("capitals-btn");
@@ -14,6 +15,17 @@ const nextButton = document.getElementById("next-btn");
 const nextButtonContainer = document.getElementById('nxt-btn');
 const exitButton = document.getElementById('exit-btn');
 const scoreArea = document.getElementById('score-area');
+
+// Attach the exit button listener once
+exitButton.addEventListener('click', handleExitClick);
+
+nextButton.addEventListener('click', () => {
+  if (nextButton.innerText === 'Return to Main Menu') {
+    returnToCategories();
+  } else {
+    handleNextButtonClick();
+  }
+});
 
 
 
@@ -75,15 +87,16 @@ fetch('questions.json')
   .catch(err => console.error('Error loading questions:', err));
 
 
+   function handleExitClick() {
+    console.log('click exit button'); //debug log
+  if(confirm ('Are you sure you want to exit the quiz?')) {
+    returnToCategories();
+  } 
+}
+
 // Event listeners
 capitalsButton.addEventListener('click', startCapitalsGame);
 countriesButton.addEventListener('click', startCountriesGame);
-nextButton.addEventListener('click', handleNextButtonClick);
-exitButton.addEventListener('click', () => {
-  if (confirm("Are you sure you want to exit the quiz?")) {
-    returnToCategories();
-  }
-},{once:true});
 
 // Allows the user to see the capitals questions
 function startCapitalsGame() {
@@ -114,7 +127,7 @@ function startCapitalsGame() {
 
 
 
-  exitButton.classList.remove('hide');
+  showExitButton();
 }
 
 
@@ -148,7 +161,7 @@ function startCountriesGame() {
 
 
 
-  exitButton.classList.remove('hide');
+ showExitButton();;
 }
 
 
@@ -366,31 +379,6 @@ function incrementWrongAnswer() {
 }
 
 //Preparation to return the user at the end of the quiz to return to the main menu getting the next button ready
-function backToMainMenu() {
-    if (quizType === "capital") {
-        if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
-            nextButtonContainer.classList.remove('hide');
-        } else {
-            nextButton.innerText = 'Return to main menu';
-            nextButtonContainer.classList.remove('hide');
-            nextButton.classList.remove('hide');
-
-            nextButton.addEventListener('click', returnToCategories)
-        }
-    } else if (quizType === "country") {
-        if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
-            nextButtonContainer.classList.remove('hide');
-            nextButton.classList.remove('hide');
-        } else {
-            nextButton.innerText = 'Return to main menu';
-           nextButton.style.background = 'blue';
-           nextButtonContainer.classList.remove('hide');
-           nextButton.classList.remove('hide');
-
-           nextButton.addEventListener('click', returnToCategories)
-        }
-    }
-}
 // Resets the quiz ui and state. Returns quiz to page user sees when they arrive at the website
 // Return to main menu UI and reset states
 function returnToCategories() {
@@ -416,7 +404,9 @@ function returnToCategories() {
   const title = document.getElementsByTagName('h1')[0];
   title.innerText = 'Countries and Capitals Quiz';
 
-  exitButton.classList.add('hide');
+ showExitButton();
+  // Reattach exit listener as it has been removed
+  exitButton.addEventListener('click', handleExitClick);
 
   document.getElementById('correct').innerText = 0;
   document.getElementById('incorrect').innerText = 0;
@@ -428,7 +418,7 @@ function lastQuestion() {
     nextButton.classList.add('bold-large-button');
     nextButtonContainer.classList.remove('hide');
     nextButton.classList.remove('hide');
-    nextButton.addEventListener('click', returnToCategories, {once:true});
+   
 }
 
 
@@ -449,3 +439,8 @@ function clearStatusClass (element) {
         element.classList.remove('correct');
         element.classList.remove('wrong');
     }
+
+    function showExitButton() {
+  exitButton.classList.remove('hide');
+}
+   

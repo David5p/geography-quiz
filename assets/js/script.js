@@ -102,6 +102,18 @@ function startCapitalsGame() {
 
   replaceTitle("capital");
   setNextCapitalQuestion();
+  
+  setTimeout(() => {
+  const capQuestionText = document.getElementById('capitals-question-text');
+    if (capQuestionText) {capQuestionText.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+    })
+  }   
+  }, 100);
+
+
+
   exitButton.classList.remove('hide');
 }
 
@@ -116,6 +128,7 @@ function startCountriesGame() {
   capitalsButton.style.display = 'none';
   countriesButton.style.display = 'none';
 
+
   const countriesQuestionContainer = document.getElementById('countries-questions');
   const countriesAnswerButtons = document.getElementById('countries-answer-btn');
   countriesQuestionContainer.classList.remove('hide');
@@ -124,6 +137,17 @@ function startCountriesGame() {
 
   replaceTitle("country");
   setNextCountryQuestion();
+  setTimeout(() => {
+  const countQuestionText = document.getElementById('countries-question-text');
+    if (countQuestionText) {countQuestionText.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+    })
+  }   
+  }, 100);
+
+
+
   exitButton.classList.remove('hide');
 }
 

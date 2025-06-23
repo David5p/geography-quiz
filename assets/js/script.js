@@ -361,21 +361,36 @@ function showNextButton () {
  * Gets the current score from the DOM and increments it by 1
  */
 function incrementScore() {
+    try {
+      const correctElement = document.getElementById('correct');
+      if (!correctElement) throw new Error('Element with ID correct cannot be found.');
     
-    let oldScore = parseInt(document.getElementById('correct').innerText);
-    document.getElementById('correct').innerText = ++oldScore;
+    let oldScore = parseInt(correctElement.innerText);
+    if(isNaN(oldScore)) throw new Error("'correct' innertext is not a number");
 
+    correctElement.innerText = ++oldScore;
+    }catch(error) {
+      console.log('Error incrementing score:', error);
+      alert('Something went wrong while updating your correct answer score');
+    }
 }
 
 /**
  * Gets the current score of incorrect answers from the DOM and increments it by 1
  */
-
 function incrementWrongAnswer() {
+    try {
+      const incorrectElement = document.getElementById('incorrect');
+      if (!incorrectElement) throw new Error ("Element with ID incorrect cannot be found");
     
-    let oldScore = parseInt(document.getElementById('incorrect').innerText);
-    document.getElementById('incorrect').innerText = ++oldScore;
+      let oldScore = parseInt(incorrectElement.innerText);
+      if(isNaN(oldScore)) throw new Error ("'incorrect' innertext is not a number");
 
+    incorrectElement.innerText = ++oldScore;
+}catch(error) {
+  console.log('Error incrementing incorrect answers', error);
+  alert ('Something went wrong while updating your incorrect answer score');
+  }
 }
 
 //Preparation to return the user at the end of the quiz to return to the main menu getting the next button ready

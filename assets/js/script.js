@@ -83,7 +83,7 @@ exitButton.addEventListener('click', () => {
   if (confirm("Are you sure you want to exit the quiz?")) {
     returnToCategories();
   }
-});
+},{once:true});
 
 // Allows the user to see the capitals questions
 function startCapitalsGame() {
@@ -449,10 +449,3 @@ function clearStatusClass (element) {
         element.classList.remove('correct');
         element.classList.remove('wrong');
     }
-
-
-exitButton.addEventListener('click', () => {
-    const confirmExit = confirm("Are you sure you want to exit the quiz?")
-        if (confirmExit) {
-        returnToCategories();
-}});

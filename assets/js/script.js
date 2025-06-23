@@ -38,7 +38,7 @@ countriesButton.disabled = true;
 
 // Load questions from JSON and initialize quizzes
 
-fetch('questions.json')
+fetch('assets/questions.json')
 
   .then(response => response.json())
 

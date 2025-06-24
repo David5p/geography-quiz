@@ -242,7 +242,10 @@ const capitalsQuestionElement = document.getElementById('capitals-question-text'
 const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
 
     capitalsQuestionElement.innerHTML = boldWords(question.question);
-    capitalsAnswerButtons.innerHTML = ''; // clear previous buttons
+    // Clear any previous feedback styles
+    capitalsQuestionElement.classList.remove('correct-feedback', 'incorrect-feedback');
+    // clear previous buttons
+    capitalsAnswerButtons.innerHTML = '';
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
@@ -272,8 +275,10 @@ const countriesQuestionElement = document.getElementById('countries-question-tex
 const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 
     countriesQuestionElement.innerHTML = boldWords(question.question);
-
-    countriesAnswerButtons.innerHTML = ''; // clear previous buttons
+    // Clear any previous feedback styles
+    countriesQuestionElement.classList.remove('correct-feedback', 'incorrect-feedback');
+    // clear previous buttons
+    countriesAnswerButtons.innerHTML = ''; 
 
     question.answers.forEach(answer => {
         const button = document.createElement('button');
@@ -295,15 +300,22 @@ const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 function resetState() {
     nextButtonContainer.classList.add('hide');
      nextButton.classList.add('hide');
- const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
+  const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
   const countriesAnswerButtons = document.getElementById('countries-answer-btn');
-
+    //Clear answer buttons
     while (capitalsAnswerButtons.firstChild) {
         capitalsAnswerButtons.removeChild(capitalsAnswerButtons.firstChild);
     }
     while (countriesAnswerButtons.firstChild) {
         countriesAnswerButtons.removeChild(countriesAnswerButtons.firstChild);
     }
+
+    //Resets question background
+    const capitalsText = document.getElementById('capitals-question-text');
+    const countriesText = document.getElementById('countries-question-text');
+
+capitalsText?.classList.remove('correct-feedback', 'wrong-feedback');
+countriesText?.classList.remove('correct-feedback', 'wrong-feedback');
 }
 
 
@@ -320,13 +332,22 @@ function selectAnswer(e) {
     });
 
     // Show feedback to user
+    const questionTextElement = quizType === 'capital'
+    ? document.getElementById('capitals-question-text')
+    : document.getElementById('countries-question-text');
+
+    //Reset background
+    questionTextElement.classList.remove('correct-feedback', 'wrong-feedback');
+
     if (correct) {
-        alert("Well Done!");
+        questionTextElement.innerHTML = "<strong>Well Done!</strong> That's the correct answer.";
+        questionTextElement.classList.add('correct-feedback');
         incrementScore();
     } else { const correctButton = Array.from(parent.children)
         .find
         (btn => btn.dataset.correct === "true");
-        alert(`Unfortunately, you selected the wrong answer. The correct answer is: ${correctButton.innerText}`);
+        questionTextElement.innerHTML = `Unfortunately, you selected the wrong answer. The correct answer is: ${correctButton.innerText}`;
+        questionTextElement.classList.add('incorrect-feedback');
         incrementWrongAnswer();
     }
     

@@ -51,6 +51,21 @@ div.quiz-area.container {
     width: 90%;
     max-width: 800px;
 }
+.timer {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    background-color: #ffff66;
+     border: 2px solid black;
+    padding: 6px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    width: 1000%;
+    max-width: 350px;
+    display: inline-block;
+
+}
 .answer-btn {
   font-size: large;
   font-weight: bold;

@@ -7,6 +7,10 @@ let quizType = null;
 let currentCapitalsQuestionIndex = 0;
 let currentCountriesQuestionIndex = 0;
 let ExitListenerAttached = false;
+let timerInterval = null;
+//Time for each question
+let timeLeft = 20;
+
 
 //Buttons that are accessed globally and used in many functions
 const capitalsButton = document.getElementById("capitals-btn");
@@ -132,6 +136,49 @@ function startCapitalsGame() {
   showExitButton();
 }
 
+function startTimer() {
+  timeLeft = 20;
+  const timerDisplay = document.getElementById('timer-seconds');
+  timerDisplay.innerText = timeLeft;
+
+  // Clear any existing time left on timer
+  clearInterval(timerInterval);
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    timerDisplay.innerText = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      handleTimeOut();
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function handleTimeOut () {
+  const questionTextElement = quizType === 'capital'
+  ?document.getElementById('capitals-question-text')
+  :document.getElementById('countries-question-text');
+  const answerButtons = quizType === 'capital'
+  ?document.getElementById('capitals-answer-btn')
+  :document.getElementById('countries-answer-btn');
+  Array.from(answerButtons.children)
+  .forEach(button => {
+    button.disabled = true;
+  })
+  const correctButton = Array.from(answerButtons.children)
+  .find
+  (btn=>btn.dataset.correct === "true");
+  questionTextElement.innerHTML = `Time's up! The correct answer is: ${correctButton.innerText}`;
+  questionTextElement.classList.add('incorrect-feedback');
+
+  incrementWrongAnswer();
+  showNextButton();
+}
 
 
 // Allows the user to see the countries questions
@@ -259,7 +306,10 @@ const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
 
     capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
     document.getElementById('capitals-questions').classList.remove('hide'); // show question container
-}
+    //Starts timer when new question appears
+    document.getElementById('question-timer').classList.remove('hide');
+    startTimer()
+  }
 /*
 * Shows the countries questions and creates new answer buttons
 */
@@ -293,7 +343,9 @@ const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 
     countriesAnswerButtons.classList.remove('hide'); // show answer buttons
     document.getElementById('countries-questions').classList.remove('hide'); // show question container
-
+    //Starts timer when new question appears
+    document.getElementById('question-timer').classList.remove('hide');
+    startTimer()
 }
 
 //Resets the quiz after each question
@@ -316,11 +368,20 @@ function resetState() {
 
 capitalsText?.classList.remove('correct-feedback', 'wrong-feedback');
 countriesText?.classList.remove('correct-feedback', 'wrong-feedback');
+  //Timer restarts after each question
+  document.getElementById('question-timer').classList.add('hide');
+   const timerDisplay = document.getElementById('timer-seconds');
+   if (timerDisplay) {
+    timerDisplay.innerText = '';
+   } 
 }
 
 
 // Recognises correct answer and provides user with feedback
 function selectAnswer(e) {
+  //When user answers the timer stops  
+    stopTimer();
+
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === "true";
 
@@ -445,6 +506,7 @@ function returnToCategories() {
   title.innerText = 'Countries and Capitals Quiz';
 
  exitButton.classList.add('hide');
+ document.getElementById('question-timer').classList.add('hide');
 
   document.getElementById('correct').innerText = 0;
   document.getElementById('incorrect').innerText = 0;

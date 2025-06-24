@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 // Shared variables which need to be kept global for multiple functions to access them
 let shuffledCapitalQuestions = [];
 let shuffledCountriesQuestions = [];

@@ -10,6 +10,8 @@ let ExitListenerAttached = false;
 let timerInterval = null;
 //Time for each question
 let timeLeft = 20;
+//Create variable to help quiz flow
+let feedbackTimeout = null;
 
 
 //Buttons that are accessed globally and used in many functions
@@ -178,6 +180,11 @@ function handleTimeOut () {
 
   incrementWrongAnswer();
   showNextButton();
+  //Automate progress to next question after 10 seconds
+  feedbackTimeout = setTimeout(() => {
+  handleNextButtonClick();
+}, 10000);
+    scheduleAutoAdvance();
 }
 
 
@@ -232,6 +239,9 @@ function replaceTitle(type) {
 
 // Handle next button click for both quizzes so no need for function in event listener
 function handleNextButtonClick() {
+  // Cancel pending auto-next 
+  clearTimeout(feedbackTimeout); 
+  feedbackTimeout = null;
   if (quizType === "capital") {
     if (currentCapitalsQuestionIndex < shuffledCapitalQuestions.length - 1) {
       currentCapitalsQuestionIndex++;
@@ -379,8 +389,9 @@ countriesText?.classList.remove('correct-feedback', 'wrong-feedback');
 
 // Recognises correct answer and provides user with feedback
 function selectAnswer(e) {
-  //When user answers the timer stops  
+  //When user answers the timer stops and is hidden
     stopTimer();
+    document.getElementById('question-timer').classList.add('hide');
 
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === "true";
@@ -434,6 +445,11 @@ function selectAnswer(e) {
             lastQuestion();
         }
     }
+    //Automate progress to next question after 10 seconds
+    feedbackTimeout = setTimeout(() => {
+  handleNextButtonClick();
+}, 10000);
+    scheduleAutoAdvance();
 }
 
 function showNextButton () {
@@ -441,6 +457,16 @@ function showNextButton () {
     nextButton.style.background = '#00008B';
     nextButton.classList.remove('hide');
     nextButtonContainer.classList.remove('hide');
+}
+
+/**
+ * Allow quiz to flow with 10 second wait period before quiz advances to the next question 
+ */
+function scheduleAutoAdvance() {
+  clearTimeout(feedbackTimeout); // Ensure no double-timeouts
+  feedbackTimeout = setTimeout(() => {
+    handleNextButtonClick();
+  }, 10000);
 }
 
 /**

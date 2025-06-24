@@ -102,7 +102,9 @@ countriesButton.addEventListener('click', startCountriesGame);
 function startCapitalsGame() {
   quizType = "capital";
   currentCapitalsQuestionIndex = 0;
-  shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
+  shuffledCapitalQuestions = [...capitalsQuiz]
+  .sort(() => Math.random() - 0.5)
+  .slice(0,10);
 
   capitalsButton.style.display = 'none';
   countriesButton.style.display = 'none';
@@ -136,7 +138,9 @@ function startCapitalsGame() {
 function startCountriesGame() {
   quizType = "country";
   currentCountriesQuestionIndex = 0;
-  shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
+  shuffledCountriesQuestions = [...countriesQuiz]
+  .sort(() => Math.random() - 0.5)
+  .slice(0,10);
 
   capitalsButton.style.display = 'none';
   countriesButton.style.display = 'none';

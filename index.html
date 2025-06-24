@@ -40,12 +40,19 @@
     />
     <main>
       <section class="question-type container">
-        <button id="capitals-btn" class="btn btn-primary menu col-5 col-md-3">
-          Capitals
-        </button>
-        <button id="countries-btn" class="btn btn-primary menu col-5 col-md-3">
-          Countries
-        </button>
+        <div class="menu-wrapper">
+          <button id="capitals-btn" class="btn btn-primary menu col-5 col-md-3">
+            Capitals
+          </button>
+        </div>
+        <div class="menu-wrapper">
+          <button
+            id="countries-btn"
+            class="btn btn-primary menu col-5 col-md-3"
+          >
+            Countries
+          </button>
+        </div>
         <!-- Timer shown when quiz is being played-->
         <div id="question-timer" class="timer hide">
           Time left: <span id="timer-seconds">20</span>secs

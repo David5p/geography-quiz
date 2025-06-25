@@ -130,14 +130,17 @@ function startCapitalsGame() {
 function startTimer() {
   timeLeft = 20;
   const timerDisplay = document.getElementById("timer-seconds");
-  timerDisplay.innerText = timeLeft;
-
+  if (timerDisplay) {
+    timerDisplay.innerText = timeLeft;
+  }
   // Clear any existing time left on timer
   clearInterval(timerInterval);
 
   timerInterval = setInterval(() => {
     timeLeft--;
-    timerDisplay.innerText = timeLeft;
+    if (timerDisplay) {
+      timerDisplay.innerText = timeLeft;
+    }
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
@@ -313,8 +316,13 @@ function showCapitalsQuestion(question) {
 
   capitalsAnswerButtons.classList.remove("hide"); // show answer buttons
   document.getElementById("capitals-questions").classList.remove("hide"); // show question container
-  //Starts timer when new question appears
-  document.getElementById("question-timer").classList.remove("hide");
+
+  // Create and append mini timer "button"
+  const timerButton = document.createElement("span");
+  timerButton.id = "question-timer";
+  timerButton.classList.add("timer-button");
+  timerButton.innerHTML = `<span id="timer-seconds">${timeLeft}</span>`;
+  capitalsAnswerButtons.appendChild(timerButton);
   startTimer();
 }
 /*
@@ -359,8 +367,13 @@ function showCountriesQuestion(question) {
 
   countriesAnswerButtons.classList.remove("hide"); // show answer buttons
   document.getElementById("countries-questions").classList.remove("hide"); // show question container
-  //Starts timer when new question appears
-  document.getElementById("question-timer").classList.remove("hide");
+
+  // Create and append mini timer "button"
+  const timerButton = document.createElement("span");
+  timerButton.id = "question-timer";
+  timerButton.classList.add("timer-button");
+  timerButton.innerHTML = `<span id="timer-seconds">${timeLeft}</span>`;
+  capitalsAnswerButtons.appendChild(timerButton);
   startTimer();
 }
 
@@ -387,7 +400,6 @@ function resetState() {
   capitalsText?.classList.remove("correct-feedback", "wrong-feedback");
   countriesText?.classList.remove("correct-feedback", "wrong-feedback");
   //Timer restarts after each question
-  document.getElementById("question-timer").classList.add("hide");
   const timerDisplay = document.getElementById("timer-seconds");
   if (timerDisplay) {
     timerDisplay.innerText = "";
@@ -398,7 +410,6 @@ function resetState() {
 function selectAnswer(e) {
   //When user answers the timer stops and is hidden
   stopTimer();
-  document.getElementById("question-timer").classList.add("hide");
 
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct === "true";
@@ -543,7 +554,6 @@ function returnToCategories() {
   title.innerText = "Countries and Capitals Quiz";
 
   exitButton.classList.add("hide");
-  document.getElementById("question-timer").classList.add("hide");
 
   document.getElementById("correct").innerText = 0;
   document.getElementById("incorrect").innerText = 0;

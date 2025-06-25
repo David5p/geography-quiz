@@ -63,19 +63,22 @@ div.quiz-area.container {
   max-width: 800px;
 }
 
-.timer {
+.timer-button {
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
   color: var(--primary-color);
   background-color: #ffff66; /*yellow background to draw user attention */
   border: 3px solid #f5f5f5;
-  padding: 6px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  margin: 0.5em auto;
   text-align: center;
   width: 100%;
-  max-width: 350px;
+  max-width: 120px;
   display: inline-block;
+  flex: 0 0 25%;
+  align-self: center;
+  pointer-events: none; /* Not clickable */
 }
 
 .answer-btn {
@@ -164,6 +167,7 @@ button.menu:hover {
   border-radius: 10px;
   color: white;
   background-color: #b30000; /*Red to demonstrate button importance */
+  margin-bottom: 0;
 }
 
 /* Utility class for optional large, bold buttons */

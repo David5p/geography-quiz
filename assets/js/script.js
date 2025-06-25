@@ -153,7 +153,7 @@ function handleTimeOut() {
     button.disabled = true;
   });
   const correctButton = Array.from(answerButtons.children).find((btn) => btn.dataset.correct === 'true');
-  questionTextElement.innerHTML = `Time's up! The correct answer is: ${correctButton.innerText}`;
+  questionTextElement.innerHTML = `Time's up! The correct answer is: ${correctButton.innerHTML}`;
   questionTextElement.classList.add('incorrect-feedback');
 
   incrementWrongAnswer();

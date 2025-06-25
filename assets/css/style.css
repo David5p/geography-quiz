@@ -1,5 +1,5 @@
 /* Google Fonts import */
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Outfit:wght@100;400;700;900&display=swap");
 
 /* Custom variables for fonts and colors to maintain consistency throughout the website */
 :root {
@@ -177,13 +177,17 @@ button.menu:hover {
 }
 
 #score-area {
+  position: fixed;
+  top: 12rem;
+  right: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem; /* moves score area away from the bottom of the page */
   background-color: #b5c3c6;
   color: #000000;
-  font-size: x-large;
+  font-size: 1.2em;
+  font-weight: bold;
   display: inline-block;
-  padding: 0.5em 2em;
+  padding: 0.2em 1em;
   border-radius: 8px; /* softens edges of the box */
 }
 
@@ -214,4 +218,35 @@ button.menu:hover {
 /* Utility class to hide elements as needed by JavaScript */
 .hide {
   display: none !important;
+}
+
+@media (max-width: 768px) {
+  #score-area {
+    position: static;
+    margin-top: 1rem;
+    box-shadow: none;
+    border: none;
+  }
+}
+.answer-score-flex-wrapper {
+  display: block; /* stack by default on small screens */
+}
+
+@media screen and (min-width: 900px) {
+  .answer-score-flex-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  #capitals-answer-btn,
+  #countries-answer-btn {
+    flex: 1;
+  }
+
+  #score-area {
+    max-width: 200px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
 }

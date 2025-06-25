@@ -15,18 +15,18 @@ let timeLeft = 20;
 let feedbackTimeout = null;
 
 //Buttons that are accessed globally and used in many functions
-const capitalsButton = document.getElementById("capitals-btn");
-const countriesButton = document.getElementById("countries-btn");
-const nextButton = document.getElementById("next-btn");
-const nextButtonContainer = document.getElementById("nxt-btn");
-const exitButton = document.getElementById("exit-btn");
-const scoreArea = document.getElementById("score-area");
+const capitalsButton = document.getElementById('capitals-btn');
+const countriesButton = document.getElementById('countries-btn');
+const nextButton = document.getElementById('next-btn');
+const nextButtonContainer = document.getElementById('nxt-btn');
+const exitButton = document.getElementById('exit-btn');
+const scoreArea = document.getElementById('score-area');
 
 // Attach the exit button listener once
-exitButton.addEventListener("click", handleExitClick);
+exitButton.addEventListener('click', handleExitClick);
 
-nextButton.addEventListener("click", () => {
-  if (nextButton.innerText === "Return to Main Menu") {
+nextButton.addEventListener('click', () => {
+  if (nextButton.innerText === 'Return to Main Menu') {
     returnToCategories();
   } else {
     handleNextButtonClick();
@@ -34,22 +34,17 @@ nextButton.addEventListener("click", () => {
 });
 
 //Disable buttons
-
 capitalsButton.disabled = true;
 
 countriesButton.disabled = true;
 
 // Load questions from JSON and initialize quizzes
-
-fetch("assets/questions.json")
+fetch('assets/questions.json')
   .then((response) => response.json())
-
   .then((data) => {
     // Transform JSON into the format for the quiz
-
     capitalsQuiz = data.capitalsQuestions.map((q) => ({
       question: q.question,
-
       answers: q.options.map((option) => ({
         text: option,
         correct: option === q.answer,
@@ -66,60 +61,55 @@ fetch("assets/questions.json")
     }));
 
     // Questions shuffle after loading
-
-    shuffledCapitalQuestions = [...capitalsQuiz].sort(
-      () => Math.random() - 0.5
-    );
-    shuffledCountriesQuestions = [...countriesQuiz].sort(
-      () => Math.random() - 0.5
-    );
+    shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
+    shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
 
     //Enable buttons
     capitalsButton.disabled = false;
 
     countriesButton.disabled = false;
   })
-
-  .catch((err) => console.error("Error loading questions:", err));
+  .catch((err) => console.error('Error loading questions:', err));
 
 function handleExitClick() {
-  console.log("click exit button"); //debug log
-  if (confirm("Are you sure you want to exit the quiz?")) {
+  console.log('click exit button'); //debug log to ensure exit button only goes off once
+  if (confirm('Are you sure you want to exit the quiz?')) {
     returnToCategories();
   }
 }
 
 // Event listeners
-capitalsButton.addEventListener("click", startCapitalsGame);
-countriesButton.addEventListener("click", startCountriesGame);
+capitalsButton.addEventListener('click', startCapitalsGame);
+countriesButton.addEventListener('click', startCountriesGame);
 
-// Allows the user to see the capitals questions
+/**
+ *Allows the user to see the capitals questions
+ */
 function startCapitalsGame() {
-  quizType = "capital";
+  quizType = 'capital';
   currentCapitalsQuestionIndex = 0;
-  shuffledCapitalQuestions = [...capitalsQuiz]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 10);
+  shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5).slice(0, 10);
 
-  capitalsButton.style.display = "none";
-  countriesButton.style.display = "none";
+  //Hides menu buttons on quiz start and shows question and answer buttons
+  capitalsButton.style.display = 'none';
+  countriesButton.style.display = 'none';
 
-  const capitalsQuestionContainer =
-    document.getElementById("capitals-questions");
-  const capitalsAnswerButtons = document.getElementById("capitals-answer-btn");
-  capitalsQuestionContainer.classList.remove("hide");
-  capitalsAnswerButtons.classList.remove("hide");
-  scoreArea.classList.remove("hide");
+  const capitalsQuestionContainer = document.getElementById('capitals-questions');
+  const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
+  capitalsQuestionContainer.classList.remove('hide');
+  capitalsAnswerButtons.classList.remove('hide');
+  scoreArea.classList.remove('hide');
 
-  replaceTitle("capital");
+  replaceTitle('capital');
   setNextCapitalQuestion();
 
+  //Moves user to question when the quiz starts
   setTimeout(() => {
-    const capQuestionText = document.getElementById("capitals-question-text");
+    const capQuestionText = document.getElementById('capitals-question-text');
     if (capQuestionText) {
       capQuestionText.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        behavior: 'smooth',
+        block: 'start',
       });
     }
   }, 100);
@@ -127,9 +117,12 @@ function startCapitalsGame() {
   showExitButton();
 }
 
+/**
+ * Iniates 20 second countdown for each question
+ */
 function startTimer() {
   timeLeft = 20;
-  const timerDisplay = document.getElementById("timer-seconds");
+  const timerDisplay = document.getElementById('timer-seconds');
   if (timerDisplay) {
     timerDisplay.innerText = timeLeft;
   }
@@ -154,25 +147,18 @@ function stopTimer() {
 }
 
 function handleTimeOut() {
-  const questionTextElement =
-    quizType === "capital"
-      ? document.getElementById("capitals-question-text")
-      : document.getElementById("countries-question-text");
-  const answerButtons =
-    quizType === "capital"
-      ? document.getElementById("capitals-answer-btn")
-      : document.getElementById("countries-answer-btn");
+  const questionTextElement = quizType === 'capital' ? document.getElementById('capitals-question-text') : document.getElementById('countries-question-text');
+  const answerButtons = quizType === 'capital' ? document.getElementById('capitals-answer-btn') : document.getElementById('countries-answer-btn');
   Array.from(answerButtons.children).forEach((button) => {
     button.disabled = true;
   });
-  const correctButton = Array.from(answerButtons.children).find(
-    (btn) => btn.dataset.correct === "true"
-  );
+  const correctButton = Array.from(answerButtons.children).find((btn) => btn.dataset.correct === 'true');
   questionTextElement.innerHTML = `Time's up! The correct answer is: ${correctButton.innerText}`;
-  questionTextElement.classList.add("incorrect-feedback");
+  questionTextElement.classList.add('incorrect-feedback');
 
   incrementWrongAnswer();
   showNextButton();
+
   //Automate progress to next question after 10 seconds
   feedbackTimeout = setTimeout(() => {
     handleNextButtonClick();
@@ -182,35 +168,30 @@ function handleTimeOut() {
 
 // Allows the user to see the countries questions
 function startCountriesGame() {
-  quizType = "country";
+  quizType = 'country';
   currentCountriesQuestionIndex = 0;
-  shuffledCountriesQuestions = [...countriesQuiz]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 10);
+  shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5).slice(0, 10);
 
-  capitalsButton.style.display = "none";
-  countriesButton.style.display = "none";
+  // Hides menu buttons and shows question and answer buttons
+  capitalsButton.style.display = 'none';
+  countriesButton.style.display = 'none';
 
-  const countriesQuestionContainer = document.getElementById(
-    "countries-questions"
-  );
-  const countriesAnswerButtons = document.getElementById(
-    "countries-answer-btn"
-  );
-  countriesQuestionContainer.classList.remove("hide");
-  countriesAnswerButtons.classList.remove("hide");
-  scoreArea.classList.remove("hide");
+  const countriesQuestionContainer = document.getElementById('countries-questions');
+  const countriesAnswerButtons = document.getElementById('countries-answer-btn');
+  countriesQuestionContainer.classList.remove('hide');
+  countriesAnswerButtons.classList.remove('hide');
+  scoreArea.classList.remove('hide');
 
-  replaceTitle("country");
+  replaceTitle('country');
   setNextCountryQuestion();
+
+  //Ensures user's screen moves to the question once quiz starts
   setTimeout(() => {
-    const countQuestionText = document.getElementById(
-      "countries-question-text"
-    );
+    const countQuestionText = document.getElementById('countries-question-text');
     if (countQuestionText) {
       countQuestionText.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        behavior: 'smooth',
+        block: 'start',
       });
     }
   }, 100);
@@ -220,14 +201,14 @@ function startCountriesGame() {
 
 // Makes the host page versatile by changing the title depending on the game choice chosen
 function replaceTitle(type) {
-  const oldTitle = document.getElementsByTagName("h1")[0];
-  const newTitle = document.createElement("h1");
-  if (type === "capital") {
-    newTitle.textContent = "Capitals Quiz";
-  } else if (type === "country") {
-    newTitle.textContent = "Country Quiz";
+  const oldTitle = document.getElementsByTagName('h1')[0];
+  const newTitle = document.createElement('h1');
+  if (type === 'capital') {
+    newTitle.textContent = 'Capitals Quiz';
+  } else if (type === 'country') {
+    newTitle.textContent = 'Country Quiz';
   } else {
-    newTitle.textContent = "Countries and Capitals Quiz";
+    newTitle.textContent = 'Countries and Capitals Quiz';
   }
   oldTitle.replaceWith(newTitle);
 }
@@ -237,14 +218,14 @@ function handleNextButtonClick() {
   // Cancel pending auto-next
   clearTimeout(feedbackTimeout);
   feedbackTimeout = null;
-  if (quizType === "capital") {
+  if (quizType === 'capital') {
     if (currentCapitalsQuestionIndex < shuffledCapitalQuestions.length - 1) {
       currentCapitalsQuestionIndex++;
       setNextCapitalQuestion();
     } else {
       lastQuestion();
     }
-  } else if (quizType === "country") {
+  } else if (quizType === 'country') {
     if (currentCountriesQuestionIndex < shuffledCountriesQuestions.length - 1) {
       currentCountriesQuestionIndex++;
       setNextCountryQuestion();
@@ -255,10 +236,10 @@ function handleNextButtonClick() {
 }
 
 function boldWords(text) {
-  const wordsToBold = ["not", "one"];
+  const wordsToBold = ['not', 'one'];
 
   wordsToBold.forEach((word) => {
-    const regex = new RegExp(`\\b${word}\\b`, "gi");
+    const regex = new RegExp(`\\b${word}\\b`, 'gi'); // Will bold desired words
     text = text.replace(regex, `<strong>${word}</strong>`);
   });
 
@@ -268,9 +249,7 @@ function boldWords(text) {
 // Makes the quiz flow from one question to another
 function setNextCountryQuestion() {
   resetState();
-  showCountriesQuestion(
-    shuffledCountriesQuestions[currentCountriesQuestionIndex]
-  );
+  showCountriesQuestion(shuffledCountriesQuestions[currentCountriesQuestionIndex]);
 }
 
 // Makes the quiz flow from one question to another
@@ -282,45 +261,40 @@ function setNextCapitalQuestion() {
 //Shows the capitals questions and creates new answer buttons
 function showCapitalsQuestion(question) {
   if (!question) {
-    console.log(
-      "Error! Attempted to show capitals question but returned undefined"
-    );
-    alert("Oops! There are no more questions.");
+    console.log('Error! Attempted to show capitals question but returned undefined');
+    alert('Oops! There are no more questions.');
     returnToCategories();
     return;
   }
 
-  const capitalsQuestionElement = document.getElementById(
-    "capitals-question-text"
-  );
-  const capitalsAnswerButtons = document.getElementById("capitals-answer-btn");
+  const capitalsQuestionElement = document.getElementById('capitals-question-text');
+  const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
 
   capitalsQuestionElement.innerHTML = boldWords(question.question);
+
   // Clear any previous feedback styles
-  capitalsQuestionElement.classList.remove(
-    "correct-feedback",
-    "incorrect-feedback"
-  );
+  capitalsQuestionElement.classList.remove('correct-feedback', 'incorrect-feedback');
+
   // clear previous buttons
-  capitalsAnswerButtons.innerHTML = "";
+  capitalsAnswerButtons.innerHTML = '';
   question.answers.forEach((answer) => {
-    const button = document.createElement("button");
+    const button = document.createElement('button');
     button.innerText = answer.text;
-    button.classList.add("col-6", "col-md-5", "answer-btn");
+    button.classList.add('col-6', 'col-md-5', 'answer-btn');
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener('click', selectAnswer);
     capitalsAnswerButtons.appendChild(button);
   });
 
-  capitalsAnswerButtons.classList.remove("hide"); // show answer buttons
-  document.getElementById("capitals-questions").classList.remove("hide"); // show question container
+  capitalsAnswerButtons.classList.remove('hide'); // show answer buttons
+  document.getElementById('capitals-questions').classList.remove('hide'); // show question container
 
   // Create and append mini timer "button"
-  const timerButton = document.createElement("span");
-  timerButton.id = "question-timer";
-  timerButton.classList.add("timer-button");
+  const timerButton = document.createElement('span');
+  timerButton.id = 'question-timer';
+  timerButton.classList.add('timer-button');
   timerButton.innerHTML = `<span id="timer-seconds">${timeLeft}</span>`;
   capitalsAnswerButtons.appendChild(timerButton);
   startTimer();
@@ -330,61 +304,52 @@ function showCapitalsQuestion(question) {
  */
 function showCountriesQuestion(question) {
   if (!question) {
-    console.log(
-      "Error! Attempted to show countries question but returned undefined"
-    );
-    alert("Oops! There are no more questions.");
+    console.log('Error! Attempted to show countries question but returned undefined');
+    alert('Oops! There are no more questions.');
     returnToCategories();
     return;
   }
 
-  const countriesQuestionElement = document.getElementById(
-    "countries-question-text"
-  );
-  const countriesAnswerButtons = document.getElementById(
-    "countries-answer-btn"
-  );
+  const countriesQuestionElement = document.getElementById('countries-question-text');
+  const countriesAnswerButtons = document.getElementById('countries-answer-btn');
 
   countriesQuestionElement.innerHTML = boldWords(question.question);
   // Clear any previous feedback styles
-  countriesQuestionElement.classList.remove(
-    "correct-feedback",
-    "incorrect-feedback"
-  );
+  countriesQuestionElement.classList.remove('correct-feedback', 'incorrect-feedback');
   // clear previous buttons
-  countriesAnswerButtons.innerHTML = "";
+  countriesAnswerButtons.innerHTML = '';
 
   question.answers.forEach((answer) => {
-    const button = document.createElement("button");
+    const button = document.createElement('button');
     button.innerText = answer.text;
-    button.classList.add("col-6", "col-md-5", "answer-btn");
+    button.classList.add('col-6', 'col-md-5', 'answer-btn');
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener('click', selectAnswer);
     countriesAnswerButtons.appendChild(button);
   });
 
-  countriesAnswerButtons.classList.remove("hide"); // show answer buttons
-  document.getElementById("countries-questions").classList.remove("hide"); // show question container
+  countriesAnswerButtons.classList.remove('hide'); // show answer buttons
+  document.getElementById('countries-questions').classList.remove('hide'); // show question container
 
   // Create and append mini timer "button"
-  const timerButton = document.createElement("span");
-  timerButton.id = "question-timer";
-  timerButton.classList.add("timer-button");
+  const timerButton = document.createElement('span');
+  timerButton.id = 'question-timer';
+  timerButton.classList.add('timer-button');
   timerButton.innerHTML = `<span id="timer-seconds">${timeLeft}</span>`;
-  capitalsAnswerButtons.appendChild(timerButton);
+  countriesAnswerButtons.appendChild(timerButton);
   startTimer();
 }
 
-//Resets the quiz after each question
+/**
+ * Resets the quiz after each question
+ */
 function resetState() {
-  nextButtonContainer.classList.add("hide");
-  nextButton.classList.add("hide");
-  const capitalsAnswerButtons = document.getElementById("capitals-answer-btn");
-  const countriesAnswerButtons = document.getElementById(
-    "countries-answer-btn"
-  );
+  nextButtonContainer.classList.add('hide');
+  nextButton.classList.add('hide');
+  const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
+  const countriesAnswerButtons = document.getElementById('countries-answer-btn');
   //Clear answer buttons
   while (capitalsAnswerButtons.firstChild) {
     capitalsAnswerButtons.removeChild(capitalsAnswerButtons.firstChild);
@@ -394,72 +359,74 @@ function resetState() {
   }
 
   //Resets question background
-  const capitalsText = document.getElementById("capitals-question-text");
-  const countriesText = document.getElementById("countries-question-text");
+  const capitalsText = document.getElementById('capitals-question-text');
+  const countriesText = document.getElementById('countries-question-text');
 
-  capitalsText?.classList.remove("correct-feedback", "wrong-feedback");
-  countriesText?.classList.remove("correct-feedback", "wrong-feedback");
+  capitalsText?.classList.remove('correct-feedback', 'wrong-feedback');
+  countriesText?.classList.remove('correct-feedback', 'wrong-feedback');
   //Timer restarts after each question
-  const timerDisplay = document.getElementById("timer-seconds");
+  const timerDisplay = document.getElementById('timer-seconds');
   if (timerDisplay) {
-    timerDisplay.innerText = "";
+    timerDisplay.innerText = '';
   }
 }
 
-// Recognises correct answer and provides user with feedback
+/**
+ * Recognises correct answer and provides user with feedback
+ */
 function selectAnswer(e) {
-  //When user answers the timer stops and is hidden
+  //When user answers the timer is stopped
   stopTimer();
 
+  //Hides timer after each question
+  const timerElement = document.getElementById('question-timer');
+  if (timerElement) {
+    timerElement.remove();
+  }
+
   const selectedButton = e.target;
-  const correct = selectedButton.dataset.correct === "true";
+  const correct = selectedButton.dataset.correct === 'true';
 
   // Mark all buttons and disable them
   const parent = selectedButton.parentElement;
   Array.from(parent.children).forEach((button) => {
-    setStatusClass(button, button.dataset.correct === "true");
+    setStatusClass(button, button.dataset.correct === 'true');
     button.disabled = true;
   });
 
   // Show feedback to user
-  const questionTextElement =
-    quizType === "capital"
-      ? document.getElementById("capitals-question-text")
-      : document.getElementById("countries-question-text");
+  const questionTextElement = quizType === 'capital' ? document.getElementById('capitals-question-text') : document.getElementById('countries-question-text');
 
   //Reset background
-  questionTextElement.classList.remove("correct-feedback", "wrong-feedback");
+  questionTextElement.classList.remove('correct-feedback', 'wrong-feedback');
 
   if (correct) {
-    questionTextElement.innerHTML =
-      "<strong>Well Done!</strong> That's the correct answer.";
-    questionTextElement.classList.add("correct-feedback");
+    questionTextElement.innerHTML = "<strong>Well Done!</strong> That's the correct answer.";
+    questionTextElement.classList.add('correct-feedback');
     incrementScore();
   } else {
-    const correctButton = Array.from(parent.children).find(
-      (btn) => btn.dataset.correct === "true"
-    );
+    const correctButton = Array.from(parent.children).find((btn) => btn.dataset.correct === 'true');
     questionTextElement.innerHTML = `Unfortunately, you selected the wrong answer. The correct answer is: ${correctButton.innerText}`;
-    questionTextElement.classList.add("incorrect-feedback");
+    questionTextElement.classList.add('incorrect-feedback');
     incrementWrongAnswer();
   }
 
   //Determine to show the next question or button to return to the main menu
-  if (quizType === "capital") {
+  if (quizType === 'capital') {
     if (shuffledCapitalQuestions.length > currentCapitalsQuestionIndex + 1) {
-      nextButton.innerText = "Next";
-      nextButton.style.background = "#00008B";
-      nextButton.classList.remove("hide");
-      nextButtonContainer.classList.remove("hide");
+      nextButton.innerText = 'Next';
+      nextButton.style.background = '#00008B';
+      nextButton.classList.remove('hide');
+      nextButtonContainer.classList.remove('hide');
     } else {
       lastQuestion();
     }
-  } else if (quizType === "country") {
+  } else if (quizType === 'country') {
     if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
-      nextButton.innerText = "Next";
-      nextButton.style.background = "#00008B";
-      nextButton.classList.remove("hide");
-      nextButtonContainer.classList.remove("hide");
+      nextButton.innerText = 'Next';
+      nextButton.style.background = '#00008B';
+      nextButton.classList.remove('hide');
+      nextButtonContainer.classList.remove('hide');
     } else {
       lastQuestion();
     }
@@ -472,10 +439,10 @@ function selectAnswer(e) {
 }
 
 function showNextButton() {
-  nextButton.innerText = "Next";
-  nextButton.style.background = "#00008B";
-  nextButton.classList.remove("hide");
-  nextButtonContainer.classList.remove("hide");
+  nextButton.innerText = 'Next';
+  nextButton.style.background = '#00008B';
+  nextButton.classList.remove('hide');
+  nextButtonContainer.classList.remove('hide');
 }
 
 /**
@@ -493,17 +460,16 @@ function scheduleAutoAdvance() {
  */
 function incrementScore() {
   try {
-    const correctElement = document.getElementById("correct");
-    if (!correctElement)
-      throw new Error("Element with ID correct cannot be found.");
+    const correctElement = document.getElementById('correct');
+    if (!correctElement) throw new Error('Element with ID correct cannot be found.');
 
     let oldScore = parseInt(correctElement.innerText);
     if (isNaN(oldScore)) throw new Error("'correct' innertext is not a number");
 
     correctElement.innerText = ++oldScore;
   } catch (error) {
-    console.log("Error incrementing score:", error);
-    alert("Something went wrong while updating your correct answer score");
+    console.log('Error incrementing score:', error);
+    alert('Something went wrong while updating your correct answer score');
   }
 }
 
@@ -512,77 +478,83 @@ function incrementScore() {
  */
 function incrementWrongAnswer() {
   try {
-    const incorrectElement = document.getElementById("incorrect");
-    if (!incorrectElement)
-      throw new Error("Element with ID incorrect cannot be found");
+    const incorrectElement = document.getElementById('incorrect');
+    if (!incorrectElement) throw new Error('Element with ID incorrect cannot be found');
 
     let oldScore = parseInt(incorrectElement.innerText);
-    if (isNaN(oldScore))
-      throw new Error("'incorrect' innertext is not a number");
+    if (isNaN(oldScore)) throw new Error("'incorrect' innertext is not a number");
 
     incorrectElement.innerText = ++oldScore;
   } catch (error) {
-    console.log("Error incrementing incorrect answers", error);
-    alert("Something went wrong while updating your incorrect answer score");
+    console.log('Error incrementing incorrect answers', error);
+    alert('Something went wrong while updating your incorrect answer score');
   }
 }
 
-//Preparation to return the user at the end of the quiz to return to the main menu getting the next button ready
-// Resets the quiz ui and state. Returns quiz to page user sees when they arrive at the website
-// Return to main menu UI and reset states
+/**
+ * Preparation to return the user at the end of the quiz to return to the main menu getting the next button ready
+ * Resets the quiz ui and state. Returns quiz to page user sees when they arrive at the website
+ * Return to main menu UI and reset states
+ */
 function returnToCategories() {
   quizType = null;
   currentCapitalsQuestionIndex = 0;
   currentCountriesQuestionIndex = 0;
 
-  document.getElementById("capitals-questions").classList.add("hide");
-  document.getElementById("countries-questions").classList.add("hide");
-  document.getElementById("capitals-answer-btn").classList.add("hide");
-  document.getElementById("countries-answer-btn").classList.add("hide");
-  scoreArea.classList.add("hide");
+  document.getElementById('capitals-questions').classList.add('hide');
+  document.getElementById('countries-questions').classList.add('hide');
+  document.getElementById('capitals-answer-btn').classList.add('hide');
+  document.getElementById('countries-answer-btn').classList.add('hide');
+  scoreArea.classList.add('hide');
 
-  capitalsButton.style.display = "inline-block";
-  countriesButton.style.display = "inline-block";
+  capitalsButton.style.display = 'inline-block';
+  countriesButton.style.display = 'inline-block';
 
-  nextButton.classList.remove("bold-large-button");
-  nextButton.innerText = "Next";
-  nextButton.style.background = "blue";
-  nextButtonContainer.classList.add("hide");
-  nextButton.classList.add("hide");
+  nextButton.classList.remove('bold-large-button');
+  nextButton.innerText = 'Next';
+  nextButton.style.background = 'blue';
+  nextButtonContainer.classList.add('hide');
+  nextButton.classList.add('hide');
 
-  const title = document.getElementsByTagName("h1")[0];
-  title.innerText = "Countries and Capitals Quiz";
+  const title = document.getElementsByTagName('h1')[0];
+  title.innerText = 'Countries and Capitals Quiz';
 
-  exitButton.classList.add("hide");
+  exitButton.classList.add('hide');
 
-  document.getElementById("correct").innerText = 0;
-  document.getElementById("incorrect").innerText = 0;
+  document.getElementById('correct').innerText = 0;
+  document.getElementById('incorrect').innerText = 0;
 }
 
-//Allows user to return to the main menu at the end of the quiz
+/**
+ * Allows user to return to the main menu at the end of the quiz
+ */
 function lastQuestion() {
-  nextButton.innerText = "Return to Main Menu";
-  nextButton.classList.add("bold-large-button");
-  nextButtonContainer.classList.remove("hide");
-  nextButton.classList.remove("hide");
+  nextButton.innerText = 'Return to Main Menu';
+  nextButton.classList.add('bold-large-button');
+  nextButtonContainer.classList.remove('hide');
+  nextButton.classList.remove('hide');
 }
 
-//Clears classes and then adds either correct or wrong based on whether the answer is right.
+/**
+ * Clears classes and then adds either correct or wrong based on whether the answer is right.
+ */
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
-    element.classList.add("correct");
+    element.classList.add('correct');
   } else {
-    element.classList.add("wrong");
+    element.classList.add('wrong');
   }
 }
 
-//removes any previous correct or wrong classes from a button
+/**
+ * removes any previous correct or wrong classes from a button
+ */
 function clearStatusClass(element) {
-  element.classList.remove("correct");
-  element.classList.remove("wrong");
+  element.classList.remove('correct');
+  element.classList.remove('wrong');
 }
 
 function showExitButton() {
-  exitButton.classList.remove("hide");
+  exitButton.classList.remove('hide');
 }

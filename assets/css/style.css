@@ -115,6 +115,11 @@ button.menu {
   max-width: 400px; /* Prevents buttons becoming too large */
   display: block;
 }
+button.menu:hover {
+  background-color: #fef0ff;
+  color: black;
+  border: 4px solid #445c56;
+}
 
 .answer-btn:hover {
   background-color: #b5c3c6;

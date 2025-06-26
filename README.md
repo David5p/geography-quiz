@@ -237,10 +237,6 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 ## Page Elements
 
-  <img src="assets/images/read_me/responsive/navbar.png" alt="Large Header">
-  <img src="assets/images/read_me/responsive/navbar1.png" alt="Medium Header">
-</div>
-
 #### Main Menu
 
 - When the user comes to the site it is fully repsonsive using bootstrap classes.
@@ -249,66 +245,34 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 #### Game Play
 
 - Once the user starts the game, the page is clearly layed out with the question, answer buttons, timer and scoreboard all well positioned.
-- On
-
-#### Footer
 
 <div align="center">
-  <img src="assets/images/read_me/responsive/footer.png" alt="Large Footer">
-  <img src="assets/images/read_me/responsive/footer1.png" alt="Small Footer">
-</div>
+  <img src="assets/images/read_me/medium_screen.png" alt="Medium or larger screens layout">
 
-- Positioned at the bottom of each page and consists of the Contact Us and Sign up to the Newsletter sections.
-- The Bootstrap class of Justify Content Around allows the footer to spaced appropriately on desktop screens.
-- On tablet and mobile devices the footer is responsive and the Contact Us section stacks on top of the Sign up to the Newsletter section.
-- The social media icons are styled and posititioned well on all devices.
-- Sign up to the Newsletter section contains a form which is fully responsive and validated.
-- The form will only send if it is completed with an appropriate email address and a name.
-- Upon completion of the form, users will be taken to a success page letting the user know that their contribution has been received.
-
-### Index Page
+- The layout for the quiz on medium (≥768px) and larger screens sees the answers in a 2by2 grid layout. This works well on ipads, laptops and desktops and takes away any need for the user to scroll.
 
 <div align="center">
-  <img src="assets/images/read_me/homepage/homepage.png" alt="Large main header">
-  <img src="assets/images/read_me/homepage/homepage1.png" alt="main section on a tablet">
-</div>
+  <img src="assets/images/read_me/small_screen.png" alt="smaller screens layout">
+-  On smaller devices, the answers stack on top of each other allowing the quiz to function smoothly too.
+<div align="center">
+  <img src="assets/images/read_me/correct_answer.png" alt="Shows screen when answer is correct">
 
-- I chose an appropriate hero image to display alongside an introduction about the website's focus on desktop devices (see image above).
-- On tablets and smaller devices the hero image and paragraph take up the whole window so that the image of The Ashes is at the forefront of the website.
-- After setting the scene with the hero imagee, I wanted to provide the user with concrete information to build up as sense of excitemnt about The Ashes so I selected some of the main expected protagonists of The Ashes as a method to preview and entice the user to read more on the website.
-  -This Players to Watch section see above image was displayed using card templates from Bootstrap which helped to create consistency and responsiveness.
-
-### Gallery Page
+- Use of CSS classes and JavaScript allows the colors of the screen to change depending on if the user is correct or incorrect. Above, is an example of a correct answer where the answer they chose is green and all the other options turn red. The question container changes color to green and provides feedback to the user.
 
 <div align="center">
-  <img src="assets/images/read_me/responsive/galleryresponsiveness.png" alt="Gallery Page">
-</div>
+  <img src="assets/images/read_me/incorrect_answer.png" alt="Shows screen when answer is incorrect">
+- The page acts in a similar way when the user gives an incorrect answer but instead of the question container going green it changes color to red.
 
-- Used the Bootstrap grid system for responsiveness functioning well on all devices.
-- Displays three columns on large screens, two on medium screens and one on mobile screens.
-- All images have alt tags to ensure website's accessibility.
-- Custom CSS applied to ensure images have appropriate padding and are full width and height.
+- The bottom of the screen includes the score area, timer, next button and exit quiz. This section of the page serves a purpose and fufils my goal which was when the user is in the quiz can they see all parts of the game without having to scroll. This page achieves this even if it is compact. One solution I explored was moving the score area next to the answer buttons on medium screens or larger with flexbox but caused layout issues with the score area floating on the screen so I chose the relative position at the bottom of the screen.
 
-### Schedule Page
+#### End of quiz
 
 <div align="center">
-  <img src="assets/images/read_me/responsive/schedule.png" alt="Schedule responsiveness">
-</div>
+  <img src="assets/images/read_me/main_menu.png" alt="Shows screen at the end of the quiz">
 
-- Schedule page performs a simple but effective purpose letting the user know the when and where of every test match.
-- Page displayed using cards for each of the five test venues ensuring information is presented in a clear and concise manner.
-- With the assistance of Bootstrap cards and the Bootstrap grid system, the schedule layout works well on all devices.
+- When the user finishes the quiz, I want the user to return to the main menu. The new button's appearance replace the next button will take the user back to the screen they see when they enter the site.
 
-## Additional Features
-
-### Success Page
-
-- This page was designed to let the user know their form has successively been submitted and provides the opportunity for them to click back to return to browse the website.
-- The styling of the page is inline with the rest of the website.
-
-### Error 404
-
-- This page lets the user know an error has occurred and the custom nature of the page allows the user to click back on a link which returns them to the website rather that the user potentially leaving for another website.
+- The user can also see the finished scoreboard of how many they got correct and incorrect before exiting the quiz.
 
 # Technologies Used
 

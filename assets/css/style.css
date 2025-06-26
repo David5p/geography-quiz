@@ -125,6 +125,21 @@ button.menu:hover {
   border: 4px solid #445c56 !important;
 }
 
+.btn-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.btn-grid .answer-btn {
+  flex: 1 1 100%; /* default full width */
+  max-width: 600px;
+  margin: 10px 0;
+}
+
 .answer-btn:hover {
   background-color: #b5c3c6;
   color: #3b2f2b;
@@ -181,8 +196,8 @@ button.menu:hover {
   position: relative;
   top: auto;
   right: auto;
-  margin-top: 2rem;
-  margin-bottom: 1rem; /* moves score area away from the bottom of the page */
+  margin-top: 0.25em;
+  margin-bottom: 0; /* moves score area away from the bottom of the page */
   background-color: #b5c3c6;
   color: #000000;
   font-size: 1.2em;
@@ -225,4 +240,13 @@ button.menu:hover {
   flex-direction: column; /* default */
   align-items: center;
   gap: 1rem;
+}
+
+/* For screens larger than 768px: 2 columns */
+@media (min-width: 769px) {
+  .btn-grid .answer-btn {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+    margin: 5px 0;
+  }
 }

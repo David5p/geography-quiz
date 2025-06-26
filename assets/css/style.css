@@ -1,10 +1,10 @@
 /* Google Fonts import */
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Outfit:wght@100;400;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Outfit:wght@100;400;700;900&display=swap');
 
 /* Custom variables for fonts and colors to maintain consistency throughout the website */
 :root {
-  --primary-font: "Outfit", sans-serif;
-  --secondary-font: "Josefin Sans", sans-serif;
+  --primary-font: 'Outfit', sans-serif;
+  --secondary-font: 'Josefin Sans', sans-serif;
   --primary-color: #285862; /* dark blue used as main background */
   --secondary-color: white;
 }
@@ -119,9 +119,9 @@ button.menu {
   display: block;
 }
 button.menu:hover {
-  background-color: #fef0ff;
-  color: black;
-  border: 4px solid #445c56;
+  background-color: #fef0ff !important;
+  color: black !important;
+  border: 4px solid #445c56 !important;
 }
 
 .answer-btn:hover {
@@ -214,7 +214,6 @@ button.menu:hover {
   color: #ffffff;
   font-size: 1.5em;
 }
-
 /* Utility class to hide elements as needed by JavaScript */
 .hide {
   display: none !important;

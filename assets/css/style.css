@@ -21,7 +21,8 @@ body {
 
 /* Adds space above and below the main title */
 h1.main-heading {
-  margin-top: 1rem;
+  font-family: var(--secondary-font) !important;
+  margin-top: 1.5rem;
   margin-bottom: 0.25rem;
 }
 
@@ -50,7 +51,7 @@ div.quiz-area.container {
 }
 
 .questions-text {
-  font-size: x-large;
+  font-size: 2em;
   font-weight: bold;
   margin: 20px auto;
   padding: 10px;

@@ -253,7 +253,9 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 <div align="center">
   <img src="assets/images/read_me/small_screen.png" alt="smaller screens layout">
--  On smaller devices, the answers stack on top of each other allowing the quiz to function smoothly too.
+
+- On smaller devices, the answers stack on top of each other allowing the quiz to function smoothly too.
+
 <div align="center">
   <img src="assets/images/read_me/correct_answer.png" alt="Shows screen when answer is correct">
 
@@ -261,6 +263,7 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 <div align="center">
   <img src="assets/images/read_me/incorrect_answer.png" alt="Shows screen when answer is incorrect">
+
 - The page acts in a similar way when the user gives an incorrect answer but instead of the question container going green it changes color to red.
 
 - The bottom of the screen includes the score area, timer, next button and exit quiz. This section of the page serves a purpose and fufils my goal which was when the user is in the quiz can they see all parts of the game without having to scroll. This page achieves this even if it is compact. One solution I explored was moving the score area next to the answer buttons on medium screens or larger with flexbox but caused layout issues with the score area floating on the screen so I chose the relative position at the bottom of the screen.
@@ -278,37 +281,48 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 ## Languages
 
-- HTML
-  - Page markup.
-- CSS
-  - Styling.
-- JavaScript
-  - Behavior.
+- **HTML**  
+  Page markup.
+- **CSS**  
+  Styling.
+- **JavaScript**  
+  Behavior.
 
 ## Frameworks
 
-- [Bootstrap5](https://getbootstrap.com/)
-  - Used for basic styles and layout templates.
+- [Bootstrap 5](https://getbootstrap.com/)  
+  Used for basic styles and layout templates.
 
 ## Libraries
 
-- [Google Fonts](https://fonts.google.com)
-  - Font Styles.
-- [Fontawesome](https://fontawesome.com/)
-  - Used for favicon
+- [Google Fonts](https://fonts.google.com)  
+  Font styles.
+- [Font Awesome](https://fontawesome.com/)  
+  Used for favicon.
 
 ## Platforms
 
-- [Github](https://github.com/)
-  - Storing code remotely and deployment.
-- [Visual Studio Code]
-  - IDE for project development.
+- [GitHub](https://github.com/)  
+  Storing code remotely and deployment.
+- [Visual Studio Code](https://code.visualstudio.com/)  
+  IDE for project development.
 
 ## Other Tools
 
-- [Canva](https://canva.com/)
-  - To create wireframes.
-- [Image Color Picker](https://imagecolorpicker.com/)
-  - Choosing color pallette.
-- [WebAIM](https://webaim.org/resources/contrastchecker/)
-  - Affirming color choices.
+- [Canva](https://canva.com/)  
+  Used to create wireframes.
+- [Image Color Picker](https://imagecolorpicker.com/)  
+  Choosing color palette.
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)  
+  Affirming accessible color choices.
+
+  # Testing
+
+## Methods
+
+### Validation
+
+| App          | Screenshot                                                                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html` | <details><summary>No errors report</summary><img src="assets/images/read_me/html_validator.png" alt="index.html validation screenshot"></details> |
+| `style.css`  | <details><summary>No errors report</summary><img src="assets/images/read_me/css_validator.png" alt="CSS validation screenshot"></details>         |

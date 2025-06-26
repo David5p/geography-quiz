@@ -149,13 +149,13 @@ button.menu:hover {
 .answer-btn.correct {
   background-color: darkgreen;
   color: white;
-  border-color: darkgreen;
+  border-color: white;
 }
 
 .answer-btn.wrong {
   background-color: darkred;
   color: white;
-  border-color: darkred;
+  border-color: white;
 }
 
 /* Ensures next button doesn’t stretch beyond 200px */
@@ -233,6 +233,19 @@ button.menu:hover {
 /* Utility class to hide elements as needed by JavaScript */
 .hide {
   display: none !important;
+}
+
+/*For accesibility only*/
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .answer-score-flex-wrapper {

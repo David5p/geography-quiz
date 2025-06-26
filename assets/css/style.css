@@ -178,9 +178,9 @@ button.menu:hover {
 }
 
 #score-area {
-  position: fixed;
-  top: 12rem;
-  right: 1.5rem;
+  position: relative;
+  top: auto;
+  right: auto;
   margin-top: 2rem;
   margin-bottom: 1rem; /* moves score area away from the bottom of the page */
   background-color: #b5c3c6;
@@ -220,33 +220,9 @@ button.menu:hover {
   display: none !important;
 }
 
-@media (max-width: 768px) {
-  #score-area {
-    position: static;
-    margin-top: 1rem;
-    box-shadow: none;
-    border: none;
-  }
-}
 .answer-score-flex-wrapper {
-  display: block; /* stack by default on small screens */
-}
-
-@media screen and (min-width: 900px) {
-  .answer-score-flex-wrapper {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-
-  #capitals-answer-btn,
-  #countries-answer-btn {
-    flex: 1;
-  }
-
-  #score-area {
-    max-width: 200px;
-    font-size: 0.95rem;
-    line-height: 1.4;
-  }
+  display: flex;
+  flex-direction: column; /* default */
+  align-items: center;
+  gap: 1rem;
 }

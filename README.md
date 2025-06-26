@@ -232,3 +232,119 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 - I have applied my preferred colors and fonts using custom css.
 - I have added in JavaScript classes using hide or display none in different places so that the user always remains on the same page.
 - The answer buttons are also added dynamically through JavaScript and then styled using classes in CSS.
+
+# Features
+
+## Page Elements
+
+  <img src="assets/images/read_me/responsive/navbar.png" alt="Large Header">
+  <img src="assets/images/read_me/responsive/navbar1.png" alt="Medium Header">
+</div>
+
+#### Main Menu
+
+- When the user comes to the site it is fully repsonsive using bootstrap classes.
+- The menu is easy to understand and the user has 2 options to choose from.
+
+#### Game Play
+
+- Once the user starts the game, the page is clearly layed out with the question, answer buttons, timer and scoreboard all well positioned.
+- On
+
+#### Footer
+
+<div align="center">
+  <img src="assets/images/read_me/responsive/footer.png" alt="Large Footer">
+  <img src="assets/images/read_me/responsive/footer1.png" alt="Small Footer">
+</div>
+
+- Positioned at the bottom of each page and consists of the Contact Us and Sign up to the Newsletter sections.
+- The Bootstrap class of Justify Content Around allows the footer to spaced appropriately on desktop screens.
+- On tablet and mobile devices the footer is responsive and the Contact Us section stacks on top of the Sign up to the Newsletter section.
+- The social media icons are styled and posititioned well on all devices.
+- Sign up to the Newsletter section contains a form which is fully responsive and validated.
+- The form will only send if it is completed with an appropriate email address and a name.
+- Upon completion of the form, users will be taken to a success page letting the user know that their contribution has been received.
+
+### Index Page
+
+<div align="center">
+  <img src="assets/images/read_me/homepage/homepage.png" alt="Large main header">
+  <img src="assets/images/read_me/homepage/homepage1.png" alt="main section on a tablet">
+</div>
+
+- I chose an appropriate hero image to display alongside an introduction about the website's focus on desktop devices (see image above).
+- On tablets and smaller devices the hero image and paragraph take up the whole window so that the image of The Ashes is at the forefront of the website.
+- After setting the scene with the hero imagee, I wanted to provide the user with concrete information to build up as sense of excitemnt about The Ashes so I selected some of the main expected protagonists of The Ashes as a method to preview and entice the user to read more on the website.
+  -This Players to Watch section see above image was displayed using card templates from Bootstrap which helped to create consistency and responsiveness.
+
+### Gallery Page
+
+<div align="center">
+  <img src="assets/images/read_me/responsive/galleryresponsiveness.png" alt="Gallery Page">
+</div>
+
+- Used the Bootstrap grid system for responsiveness functioning well on all devices.
+- Displays three columns on large screens, two on medium screens and one on mobile screens.
+- All images have alt tags to ensure website's accessibility.
+- Custom CSS applied to ensure images have appropriate padding and are full width and height.
+
+### Schedule Page
+
+<div align="center">
+  <img src="assets/images/read_me/responsive/schedule.png" alt="Schedule responsiveness">
+</div>
+
+- Schedule page performs a simple but effective purpose letting the user know the when and where of every test match.
+- Page displayed using cards for each of the five test venues ensuring information is presented in a clear and concise manner.
+- With the assistance of Bootstrap cards and the Bootstrap grid system, the schedule layout works well on all devices.
+
+## Additional Features
+
+### Success Page
+
+- This page was designed to let the user know their form has successively been submitted and provides the opportunity for them to click back to return to browse the website.
+- The styling of the page is inline with the rest of the website.
+
+### Error 404
+
+- This page lets the user know an error has occurred and the custom nature of the page allows the user to click back on a link which returns them to the website rather that the user potentially leaving for another website.
+
+# Technologies Used
+
+## Languages
+
+- HTML
+  - Page markup.
+- CSS
+  - Styling.
+- JavaScript
+  - Behavior.
+
+## Frameworks
+
+- [Bootstrap5](https://getbootstrap.com/)
+  - Used for basic styles and layout templates.
+
+## Libraries
+
+- [Google Fonts](https://fonts.google.com)
+  - Font Styles.
+- [Fontawesome](https://fontawesome.com/)
+  - Used for favicon
+
+## Platforms
+
+- [Github](https://github.com/)
+  - Storing code remotely and deployment.
+- [Visual Studio Code]
+  - IDE for project development.
+
+## Other Tools
+
+- [Canva](https://canva.com/)
+  - To create wireframes.
+- [Image Color Picker](https://imagecolorpicker.com/)
+  - Choosing color pallette.
+- [WebAIM](https://webaim.org/resources/contrastchecker/)
+  - Affirming color choices.

@@ -380,6 +380,39 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 <div align="center">
   <img src="assets/images/visual_glitch.png" alt="Shows buttons turn blue">
 
-- I tested the website by playing the different quizzes multiple times and could not find any more bugs or glitches. I tried clicking multiple times on different answer buttons but the screen locks upon the first selection and does not allow another click.
+- I tested the website by playing the different quizzes multiple times and could not find any more bugs or glitches. I tried clicking multiple times on different answer buttons but the screen locks upon the first selection and does not allow another click. I tried this on different devices and used inspect to test responsiveness.
 
-- The next button only appears once on each question and I can not find a bug with it. Similarly, my timer always counts down from 20 seconds on each question and always reset upon testing. Initially I had the timer remaining on the screen after each question but as mentioned previously the bottom area of the page has lot in it with the next button and score area so it works better that the timer hides as soon as the user answers the question.
+- The next button only appears once on each question and I can not find a bug with it. Similarly, my timer always counts down from 20 seconds on each question and always reset upon testing. Initially, I had the timer remaining on the screen after each question but as mentioned previously, the bottom area of the page was congested with the next button and score area so it works better that the timer hides as soon as the user answers the question.
+
+### Deployment
+
+The steps below detail how I deployed my live site:
+
+- The site was deployed to GitHub Pages. The steps taken were as follows:
+
+  - In the GitHub repository, navigate to the **Settings** tab on the top menu.
+  - From the settings page, navigate to the **Pages** section on the left-hand side menu.
+  - From the drop-down menu, select **"Deploy From a Branch"**.
+  - Press the **Save** button.
+  - After a few minutes, you can refresh the page to see your Live Site link at the top.
+
+- To **Fork** the repository:
+
+  - On GitHub.com, navigate to the repository.
+  - In the top-right corner of the page, click **Fork**.
+  - Choose an owner for the forked repository.
+  - Forks are named the same as their parent repositories. You can change the name of the fork.
+  - Add a description of your fork if you wish.
+  - Choose whether to copy the default branch or every branch to the new fork.
+  - Click **Create fork**.
+
+- To **Clone** the repository:
+  - On GitHub.com, navigate to the repository.
+  - Above the list of files, click the **Code** dropdown button which will bring up a list of options.
+  - Where the URL appears in the dropdown, **copy the URL**.
+  - Open **Git Bash**.
+  - Change the current working directory to the location where you want to keep the cloned directory.
+  - Type `git clone` followed by pasting the URL you copied earlier.
+  - Press **Enter**, and your local clone will be created.
+
+The live link to the website can be found here: [Capitals and Countries Quiz](https://david5p.github.io/geography-quiz/)

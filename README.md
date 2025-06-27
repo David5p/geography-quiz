@@ -347,3 +347,24 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
   <img src="assets/images/read_me/html_validator_info.png" alt="Shows CSS validator error">
 
 -I received 8 info alerts from the HTML validator relating to trailing slashes. This is due to the add on prettier formatting my HTML and they cannot be removed. The trailing slash on void elements doesn’t affect rendering or cause any errors in my code.
+
+### General Testing
+
+- The website was tested across Google Chrome, Safari, Mozilla Firefox and the mobile test was done using Google Dev tools on an Asus Zenfone 9 and no issues were found.
+
+- Each time new features and behaviors were added the preview and the deployed site were checked for functionality.
+
+- The website was tested by friends on both mobile and desktop devices.
+
+- The user stories provided a noteworthy reference point and I was allowed to ensure and test that all of the must haves were achieved for the website.
+
+- The website's functionality was primarily checked and assessed on Google Chrome and using Dev Tools to check fuctionality on different screen sizes.
+
+### PageSpeed Insights
+
+- I tested the website on PageSpeed Insights which allowed me to find out more details that my form was not labelled correctly and not all my images had alt tags which explained why the accessibility rating was not 100%. As you can see in the tables below PageSpeed Insights desktop and PageSpeed Insights mobile have given the website 100% for accessibility on all pages.
+
+| App        | Screenshot desktop and mobile                                                                                                                                  |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/test/pagespeed_index_html_desktop.png" alt="Index desktop screenshot"></details> |
+| index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/test/pagespeed_index_html_mobile.png" alt="Index mobile screenshot"></details>   |

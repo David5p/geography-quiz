@@ -1,6 +1,7 @@
 <div align="center">
   <img src="assets/images/read_me/title.png" alt="Title from home page">
 </div>
+
 <div align="center">
   <img src="assets/images/read_me/responsiveness.png" alt="Website appearance on all devices">
 </div>
@@ -244,33 +245,37 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 #### Game Play
 
-- Once the user starts the game, the page is clearly layed out with the question, answer buttons, timer and scoreboard all well positioned.
+- Once the user starts the game, the page is clearly laid out with the question, answer buttons, timer and scoreboard all well positioned.
 
-<div align="center">
-  <img src="assets/images/read_me/medium_screen.png" alt="Medium or larger screens layout">
+<p align="center">
+  <img src="assets/images/read_me/medium_screen.png" alt="Medium or larger screens layout" />
+</p>
 
-- The layout for the quiz on medium (≥768px) and larger screens sees the answers in a 2by2 grid layout. This works well on ipads, laptops and desktops and takes away any need for the user to scroll.
+- The layout for the quiz on medium (≥768px) and larger screens sees the answers in a 2-by-2 grid layout. This works well on iPads, laptops and desktops and takes away any need for the user to scroll.
 
-<div align="center">
-  <img src="assets/images/read_me/small_screen.png" alt="smaller screens layout">
+<p align="center">
+  <img src="assets/images/read_me/small_screen.png" alt="Smaller screens layout" />
+</p>
 
 - On smaller devices, the answers stack on top of each other allowing the quiz to function smoothly too.
 
-<div align="center">
-  <img src="assets/images/read_me/correct_answer.png" alt="Shows screen when answer is correct">
+<p align="center">
+  <img src="assets/images/read_me/correct_answer.png" alt="Shows screen when answer is correct" />
+</p>
 
-- Use of CSS classes and JavaScript allows the colors of the screen to change depending on if the user is correct or incorrect. Above, is an example of a correct answer where the answer they chose is green and all the other options turn red. The question container changes color to green and provides feedback to the user.
+- Use of CSS classes and JavaScript allows the colors of the screen to change depending on if the user is correct or incorrect. Above is an example of a correct answer where the answer they chose is green and all the other options turn red. The question container changes color to green and provides feedback to the user.
 
-<div align="center">
-  <img src="assets/images/read_me/incorrect_answer.png" alt="Shows screen when answer is incorrect">
+<p align="center">
+  <img src="assets/images/read_me/incorrect_answer.png" alt="Shows screen when answer is incorrect" />
+</p>
 
-- The page acts in a similar way when the user gives an incorrect answer but instead of the question container going green it changes color to red.
+- The page acts in a similar way when the user gives an incorrect answer but instead of the question container going green, it changes color to red.
 
-- The bottom of the screen includes the score area, timer, next button and exit quiz. This section of the page serves a purpose and fufils my goal which was when the user is in the quiz can they see all parts of the game without having to scroll. This page achieves this even if it is compact. One solution I explored was moving the score area next to the answer buttons on medium screens or larger with flexbox but caused layout issues with the score area floating on the screen so I chose the relative position at the bottom of the screen.
+- The bottom of the screen includes the score area, timer, next button and exit quiz. This section of the page serves a purpose and fulfils my goal, which was to allow the user to see all parts of the game without needing to scroll. This layout achieves that even if it is compact. One solution I explored was moving the score area next to the answer buttons on medium screens or larger with flexbox, but that caused layout issues with the score area floating on the screen. So, I chose the relative position at the bottom of the screen.
 
 #### End of quiz
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/main_menu.png" alt="Shows screen at the end of the quiz">
 
 - When the user finishes the quiz, I want the user to return to the main menu. The new button's appearance replace the next button will take the user back to the screen they see when they enter the site.
@@ -331,19 +336,19 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 - As the table above shows the HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/), the CSS has been validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and the JavaScript has been validated with [JS Hint](https://jshint.com/) .
 - The CSS valididator did flag four warnings with one making reference to the imported Google Fonts and the other two accounted for by each of the CSS variables. I did have one other warning which I will detail below.
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/html_validator_error.png" alt="Shows screen at the end of the quiz">
 
 - With regards to my HTML code I had two errors of the same type to fix before zero were shown. My question container and score area both had the same warning about not containing any h1-6 elements in them. Their absence presented problems because the semantic structure used made it unclear what the section is about. Aside from headings provide hierarchical meaning, I recognised the need to include them to help browsers, assistive technologies, and search engines understand content organization.
 - In my Question container and score area, I have no need for a heading and feel the buttons are clear what the user needs to do. Adding a header will be a distraction.
 - I found solution to my issue <a href="https://v1.tailwindcss.com/docs/screen-readers">online</a> by using the h2 element in both my sections but essentially keeping visually hidden. This hides the content without removing it from the accessibility tree. However, the inclusion of the h2 element improves accessibility, usability, and document outline clarity which are crucial for effective communication and user experience.
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/css_validator_warnings.png" alt="Shows CSS validator warning">
 
 - This solution initially caused a CSS warning as the property used the clip property which is depreciated and needed changing to the clip-path property.
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/html_validator_info.png" alt="Shows CSS validator error">
 
 -I received 8 info alerts from the HTML validator relating to trailing slashes. This is due to the add on prettier formatting my HTML and they cannot be removed. The trailing slash on void elements doesn’t affect rendering or cause any errors in my code.
@@ -377,7 +382,7 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 - I noticed a small glitch where the Bootstrap styles show on my two buttons before my custom styles take effect. I attempted to fix this by increasing specifity in my CSS and moved my CSS link in my index.html after my Bootstrap one but this did not solve the issue. This issue remains outstanding.
 
-<div align="center">
+<p align="center">
   <img src="assets/images/visual_glitch.png" alt="Shows buttons turn blue">
 
 - I tested the website by playing the different quizzes multiple times and could not find any more bugs or glitches. I tried clicking multiple times on different answer buttons but the screen locks upon the first selection and does not allow another click. I tried this on different devices and used inspect to test responsiveness.

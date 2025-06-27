@@ -336,12 +336,12 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 - With regards to my HTML code I had two errors of the same type to fix before zero were shown. My question container and score area both had the same warning about not containing any h1-6 elements in them. Their absence presented problems because the semantic structure used made it unclear what the section is about. Aside from headings provide hierarchical meaning, I recognised the need to include them to help browsers, assistive technologies, and search engines understand content organization.
 - In my Question container and score area, I have no need for a heading and feel the buttons are clear what the user needs to do. Adding a header will be a distraction.
-- I found solution to my issue online by using the h2 element in both my sections but essentially keeping visually hidden. This hides the content without removing it from the accessibility tree. However, the inclusion of the h2 element improves accessibility, usability, and document outline clarity which are crucial for effective communication and user experience.
+- I found solution to my issue <a href="https://v1.tailwindcss.com/docs/screen-readers">online</a> by using the h2 element in both my sections but essentially keeping visually hidden. This hides the content without removing it from the accessibility tree. However, the inclusion of the h2 element improves accessibility, usability, and document outline clarity which are crucial for effective communication and user experience.
 
 <div align="center">
   <img src="assets/images/read_me/css_validator_warnings.png" alt="Shows CSS validator warning">
 
-- This solution initially caused a CSS warning as the property used clip feature which is depreciated and needed changing to the clip-path property.
+- This solution initially caused a CSS warning as the property used the clip property which is depreciated and needed changing to the clip-path property.
 
 <div align="center">
   <img src="assets/images/read_me/html_validator_info.png" alt="Shows CSS validator error">
@@ -416,3 +416,13 @@ The steps below detail how I deployed my live site:
   - Press **Enter**, and your local clone will be created.
 
 The live link to the website can be found here: [Capitals and Countries Quiz](https://david5p.github.io/geography-quiz/)
+
+## Credit
+
+### Content and Images
+
+- The hero image was used from <a href="https://unsplash.com/">Unsplash.</a>
+- I referred to the Love Maths project for creating my initial HTML structure and what functions I would require.
+- I also created my score area using the Love Maths project as as basis for it.
+- I found the following walkthrough <a href="https://www.youtube.com/watch?v=riDzcEQbX6k">video</a> on making a quiz useful in helping me form the basis for my quiz before adding my own custom features.
+- I used StackOverflow a few times including when I was attempting to solve the <a href="https://stackoverflow.com/questions/77343449/using-of-trailing-slash-in-void-element">trailing slash issue</a> and to help me <a href="https://stackoverflow.com/questions/68994961/how-can-i-make-a-certain-word-bold-in-javascript">bold certain words</a> in my questions.

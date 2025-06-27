@@ -368,3 +368,18 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/page_speed_insights_desktop.png" alt="Index desktop screenshot"></details> |
 | index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/page_speed_insights_mobile.png" alt="Index mobile screenshot"></details>   |
+
+## Bugs
+
+### Known and fixed Bugs
+
+- I had an issue with my exit button prompting an alert twice. I resolved this issue by ensuring the event listener was only added once and not being adding twice because of the two game types.
+
+- I noticed a small glitch where the Bootstrap styles show on my two buttons before my custom styles take effect. I attempted to fix this by increasing specifity in my CSS and moved my CSS link in my index.html after my Bootstrap one but this did not solve the issue. This issue remains outstanding.
+
+<div align="center">
+  <img src="assets/images/visual_glitch.png" alt="Shows buttons turn blue">
+
+- I tested the website by playing the different quizzes multiple times and could not find any more bugs or glitches. I tried clicking multiple times on different answer buttons but the screen locks upon the first selection and does not allow another click.
+
+- The next button only appears once on each question and I can not find a bug with it. Similarly, my timer always counts down from 20 seconds on each question and always reset upon testing. Initially I had the timer remaining on the screen after each question but as mentioned previously the bottom area of the page has lot in it with the next button and score area so it works better that the timer hides as soon as the user answers the question.

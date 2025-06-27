@@ -325,4 +325,25 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 | App          | Screenshot                                                                                                                                        |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `index.html` | <details><summary>No errors report</summary><img src="assets/images/read_me/html_validator.png" alt="index.html validation screenshot"></details> |
-| `style.css`  | <details><summary>No errors report</summary><img src="assets/images/read_me/css_validator.png" alt="CSS validation screenshot"></details>         |
+| `style.css`  | <details><summary>No errors report</summary><img src="assets/images/read_me/css_validator1.png" alt="CSS validation screenshot"></details>        |
+| `script.js`  | <details><summary>No errors report</summary><img src="assets/images/read_me/js_validator.png" alt="JS validation screenshot"></details>           |
+
+- As the table above shows the HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/), the CSS has been validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and the JavaScript has been validated with [JS Hint](https://jshint.com/) .
+- The CSS valididator did flag four warnings with one making reference to the imported Google Fonts and the other two accounted for by each of the CSS variables. I did have one other warning which I will detail below.
+
+<div align="center">
+  <img src="assets/images/read_me/html_validator_error.png" alt="Shows screen at the end of the quiz">
+
+- With regards to my HTML code I had two errors of the same type to fix before zero were shown. My question container and score area both had the same warning about not containing any h1-6 elements in them. Their absence presented problems because the semantic structure used made it unclear what the section is about. Aside from headings provide hierarchical meaning, I recognised the need to include them to help browsers, assistive technologies, and search engines understand content organization.
+- In my Question container and score area, I have no need for a heading and feel the buttons are clear what the user needs to do. Adding a header will be a distraction.
+- I found solution to my issue online by using the h2 element in both my sections but essentially keeping visually hidden. This hides the content without removing it from the accessibility tree. However, the inclusion of the h2 element improves accessibility, usability, and document outline clarity which are crucial for effective communication and user experience.
+
+<div align="center">
+  <img src="assets/images/read_me/css_validator_warnings.png" alt="Shows CSS validator warning">
+
+- This solution initially caused a CSS warning as the property used clip feature which is depreciated and needed changing to the clip-path property.
+
+<div align="center">
+  <img src="assets/images/read_me/html_validator_info.png" alt="Shows CSS validator error">
+
+-I received 8 info alerts from the HTML validator relating to trailing slashes. This is due to the add on prettier formatting my HTML and they cannot be removed. The trailing slash on void elements doesn’t affect rendering or cause any errors in my code.

@@ -28,9 +28,10 @@ h1.main-heading {
 
 /* Ensures globe image fits properly without overflow */
 .logo {
-  margin: 10px;
-  max-width: 100%;
+  display: block;
+  max-width: 75%;
   height: auto;
+  margin-bottom: 1em;
 }
 
 /* Keeps the logo and category buttons aligned horizontally */

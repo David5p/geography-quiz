@@ -1,125 +1,127 @@
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/title.png" alt="Title from home page">
-</div>
+</p>
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/responsiveness.png" alt="Website appearance on all devices">
-</div>
+</p>
 
 ## Table of Contents
 
-1.  <details open>
-    <summary><a href="#about">About</a></summary>
+1. <details open>
+     <summary><a href="#about">About</a></summary>
 
-    <a href="https://david5p.github.io/geography-quiz/">The Countries and Capitals Quiz</a> project is a website for Geography lovers looking to test their knowledge.
-    The website is targeted towards adults and teenager looking for a geography quiz. It could also be used in educational settings for anyone aged 10 and older.
+   <a href="https://david5p.github.io/geography-quiz/">The Countries and Capitals Quiz</a> project is a website for Geography lovers looking to test their knowledge.
+   The website is targeted towards adults and teenager looking for a geography quiz. It could also be used in educational settings for anyone aged 10 and older.
 
-    Users of the website will be able to answer questions and receive feedback on their answers immediately. There is a timer for each question adding a challenge to answer in 20 seconds. If the user does not answer the question in the alloted time, the quiz will automatically give feedback to the user and then move on.
+   Users of the website will be able to answer questions and receive feedback on their answers immediately. There is a timer for each question adding a challenge to answer in 20 seconds. If the user does not answer the question in the alloted time, the quiz will automatically give feedback to the user and then move on.
 
-2.  <details open>
-      <summary>User Experience</summary>
-      <ul>
-        <li>
-          <details>
-            <summary>Goals</summary>
-            <ul>
-              <li><a href="#visitor-goals">Visitor Goals</a></li>
-              <li><a href="#business-goals">Business Goals</a></li>
-              <li><a href="#user-stories">User Stories</a></li>
-            </ul>
-          </details>
-        </li>
-        <li>
-          <details>
-            <summary>Visual Design</summary>
-            <ul>
-              <li><a href="#wireframes-and-project-board">Wireframes and Project Board</a></li>
-              <li><a href="#fonts">Fonts</a></li>
-              <li><a href="#icon">Icon</a></li>
-              <li><a href="#colors">Colors</a></li>
-              <li><a href="#images">Images</a></li>
-              <li><a href="#styling">Styling</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </details>
+   </details>
 
-<details open>
-  <summary>Features</summary>
-  <ul>
-    <li>
-      <details>
-        <summary>Page Elements</summary>
-        <ul>
-          <li><a href="#all-pages">All Pages</a></li>
-          <li><a href="#index-page">Index Page</a></li>
-          <li><a href="#gallery-page">Gallery Page</a></li>
-          <li><a href="#schedule-page">Schedule Page</a></li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>Additional Features</summary>
-        <ul>
-          <li><a href="#success-page">Success Page</a></li>
-          <li><a href="#error-page">Error Page</a></li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details open>
-        <summary>Technologies Used</summary>
-        <ul>
-          <li><a href="#languages">Languages</a></li>
-          <li><a href="#frameworks">Frameworks</a></li>
-          <li><a href="#libraries">Libraries</a></li>
-          <li><a href="#platforms">Platforms</a></li>
-          <li><a href="#other-tools">Other Tools</a></li>
-        </ul>
-      </details>
-    </li>
-  </ul>
-</details>
+2. <details open>
+     <summary>User Experience</summary>
+     <ul>
+       <li>
+         <details>
+           <summary>Goals</summary>
+           <ul>
+             <li><a href="#visitor-goals">Visitor Goals</a></li>
+             <li><a href="#business-goals">Business Goals</a></li>
+             <li><a href="#user-stories">User Stories</a></li>
+           </ul>
+         </details>
+       </li>
+       <li>
+         <details>
+           <summary>Visual Design</summary>
+           <ul>
+             <li><a href="#wireframes-and-project-board">Wireframes and Project Board</a></li>
+             <li><a href="#fonts">Fonts</a></li>
+             <li><a href="#icon">Icon</a></li>
+             <li><a href="#colors">Colors</a></li>
+             <li><a href="#images">Images</a></li>
+             <li><a href="#styling">Styling</a></li>
+           </ul>
+         </details>
+       </li>
+     </ul>
+   </details>
 
-<details open>
-  <summary>Testing</summary>
-  <ul>
-    <li>
-      <details>
-        <summary>Methods</summary>
-        <ul>
-          <li><a href="#validation">Validation</a></li>
-          <li><a href="#general-testing">General Testing</a></li>
-          <li><a href="#pagespeed-insights">Pagespeed Insights</a></li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>Bugs</summary>
-        <ul>
-          <li><a href="#known-and-fixed-bugs">Known and Fixed Bugs</a></li>
-        </ul>
-      </details>
-    </li>
-  </ul>
-</details>
+3. <details open>
+     <summary>Features</summary>
+     <ul>
+       <li>
+         <details>
+           <summary>Page Elements</summary>
+           <ul>
+             <li><a href="#all-pages">All Pages</a></li>
+             <li><a href="#index-page">Index Page</a></li>
+             <li><a href="#gallery-page">Gallery Page</a></li>
+             <li><a href="#schedule-page">Schedule Page</a></li>
+           </ul>
+         </details>
+       </li>
+       <li>
+         <details>
+           <summary>Additional Features</summary>
+           <ul>
+             <li><a href="#success-page">Success Page</a></li>
+             <li><a href="#error-page">Error Page</a></li>
+           </ul>
+         </details>
+       </li>
+       <li>
+         <details open>
+           <summary>Technologies Used</summary>
+           <ul>
+             <li><a href="#languages">Languages</a></li>
+             <li><a href="#frameworks">Frameworks</a></li>
+             <li><a href="#libraries">Libraries</a></li>
+             <li><a href="#platforms">Platforms</a></li>
+             <li><a href="#other-tools">Other Tools</a></li>
+           </ul>
+         </details>
+       </li>
+     </ul>
+   </details>
 
-<details open>
-  <summary>Deployment</summary>
-  <ul>
-    <li><a href="#deployment">Deployment Details</a></li>
-  </ul>
-</details>
+4. <details open>
+     <summary>Testing</summary>
+     <ul>
+       <li>
+         <details>
+           <summary>Methods</summary>
+           <ul>
+             <li><a href="#validation">Validation</a></li>
+             <li><a href="#general-testing">General Testing</a></li>
+             <li><a href="#pagespeed-insights">Pagespeed Insights</a></li>
+           </ul>
+         </details>
+       </li>
+       <li>
+         <details>
+           <summary>Bugs</summary>
+           <ul>
+             <li><a href="#known-and-fixed-bugs">Known and Fixed Bugs</a></li>
+           </ul>
+         </details>
+       </li>
+     </ul>
+   </details>
 
-<details open>
-  <summary>Credit</summary>
-  <ul>
-    <li><a href="#content-and-images">Content and Images</a></li>
-  </ul>
-</details>
+5. <details open>
+     <summary>Deployment</summary>
+     <ul>
+       <li><a href="#deployment">Deployment Details</a></li>
+     </ul>
+   </details>
+
+6. <details open>
+     <summary>Credit</summary>
+     <ul>
+       <li><a href="#content-and-images">Content and Images</a></li>
+     </ul>
+   </details>
 
 ---
 
@@ -192,9 +194,9 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 - The primary font, <a href="https://fonts.google.com/specimen/Outfit">Outfit</a> was chosen because it provides clear and legible text. It is a font that provides a modern appearance and works effectively on all the buttons for the quiz. This sans-serif font
   combines smoothly with my color schemes across the website. It provides a good contrast from the font chosen for my title.
 
-<div align="center">
-  <img src="assets/images/read_me/question_screen.png" alt="Josefin Sans font ">
-</div>
+<p align="center">
+  <img src="assets/images/read_me/question_screen.png" alt="Josefin Sans font">
+</p>
 
 - The secondary font, <a href="https://fonts.google.com/specimen/Josefin+Sans">Josefin Sans</a> was chosen to give the heading elegance and flair.It is a classic font which provides a retro feel which means it compliments the modern font choice of Outfit. The font works well with large text and functions well as a heading for this creative project of the quiz.
 
@@ -205,19 +207,28 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 ### Colors
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/color_palette.png" alt="color choices">
-</div>
+</p>
 
 - I picked the colors (image above is a screenshot taken from <a href="https://coolors.co/">Coolors</a>) of the website from the hero image using an <a href="https://imagecolorpicker.com/">image color picker</a> tool to help me with my choices.
 
-<div align="center">
+<p align="center">
   <img src="assets/images/read_me/main_image_colors.png" alt="color choices chosen from main image">
-</div>
+</p>
 
 - I varied some of the shades recommended by the image color picker so my website had sufficient contrast.
+- Colors were tested to ensure WCAG AA-level contrast compliance using WebAIM's checker.
+
+<p align="center">
+  <img src="assets/images/read_me/color_checker.png" alt="background color against question container background">
+</p>
 - The midnight green was quite a dark background choice and the color picker from image resulted in lighter shade recommendation. However, It was neither a dark nor light background and it proved problematic to match other colors with it whilst maintaining a good contrast level.
 - This resulted in my other color choices needing to be sufficiently bright to give a good contrast level.
+
+<p align="center">
+  <img src="assets/images/read_me/color_checker1.png" alt="background color against answer buttons background">
+</p>
 - The midnight green background provides a great backdrop for the lighter colors of ash grey and khaki.
 - Text for the question and answer options are black and bold against their lighter background choices.
 - When the user answers the question, the question and answer options seemlessly change background color depending on the user's answer and the text color changes to white to reflect the changed darker backgrounds.
@@ -240,7 +251,7 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 #### Main Menu
 
-- When the user comes to the site it is fully repsonsive using bootstrap classes.
+- When the user comes to the site it is fully responsive using bootstrap classes.
 - The menu is easy to understand and the user has 2 options to choose from.
 
 #### Game Play
@@ -271,7 +282,7 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 - The page acts in a similar way when the user gives an incorrect answer but instead of the question container going green, it changes color to red.
 
-- The bottom of the screen includes the score area, timer, next button and exit quiz. This section of the page serves a purpose and fulfils my goal, which was to allow the user to see all parts of the game without needing to scroll. This layout achieves that even if it is compact. One solution I explored was moving the score area next to the answer buttons on medium screens or larger with flexbox, but that caused layout issues with the score area floating on the screen. So, I chose the relative position at the bottom of the screen.
+- The bottom of the screen includes the score area, timer, next button and exit quiz. The compact layout chosen ensures users can see all game elements without scrolling, fulfilling my design goal. One solution I explored was moving the score area next to the answer buttons on medium screens or larger with flexbox, but that caused layout issues with the score area floating on the screen. So, I chose the relative position at the bottom of the screen.
 
 #### End of quiz
 
@@ -334,10 +345,11 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 | `script.js`  | <details><summary>No errors report</summary><img src="assets/images/read_me/js_validator.png" alt="JS validation screenshot"></details>           |
 
 - As the table above shows the HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/), the CSS has been validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and the JavaScript has been validated with [JS Hint](https://jshint.com/) .
-- The CSS valididator did flag four warnings with one making reference to the imported Google Fonts and the other two accounted for by each of the CSS variables. I did have one other warning which I will detail below.
+- The CSS valididator did flag four warnings with one referencing Google Fonts and two others accounted for by each of the CSS variables. I did have one other warning which I will detail below.
 
 <p align="center">
   <img src="assets/images/read_me/html_validator_error.png" alt="Shows screen at the end of the quiz">
+  </p>
 
 - With regards to my HTML code I had two errors of the same type to fix before zero were shown. My question container and score area both had the same warning about not containing any h1-6 elements in them. Their absence presented problems because the semantic structure used made it unclear what the section is about. Aside from headings provide hierarchical meaning, I recognised the need to include them to help browsers, assistive technologies, and search engines understand content organization.
 - In my Question container and score area, I have no need for a heading and feel the buttons are clear what the user needs to do. Adding a header will be a distraction.
@@ -345,11 +357,13 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 <p align="center">
   <img src="assets/images/read_me/css_validator_warnings.png" alt="Shows CSS validator warning">
+</p>
 
 - This solution initially caused a CSS warning as the property used the clip property which is depreciated and needed changing to the clip-path property.
 
 <p align="center">
   <img src="assets/images/read_me/html_validator_info.png" alt="Shows CSS validator error">
+</p>
 
 -I received 8 info alerts from the HTML validator relating to trailing slashes. This is due to the add on prettier formatting my HTML and they cannot be removed. The trailing slash on void elements doesn’t affect rendering or cause any errors in my code.
 
@@ -384,6 +398,7 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 <p align="center">
   <img src="assets/images/visual_glitch.png" alt="Shows buttons turn blue">
+  </p>
 
 - I tested the website by playing the different quizzes multiple times and could not find any more bugs or glitches. I tried clicking multiple times on different answer buttons but the screen locks upon the first selection and does not allow another click. I tried this on different devices and used inspect to test responsiveness.
 
@@ -426,7 +441,7 @@ The live link to the website can be found here: [Capitals and Countries Quiz](ht
 
 ### Content and Images
 
-- The hero image was used from <a href="https://unsplash.com/">Unsplash.</a>
+- The hero image was used from <a href="https://unsplash.com/"> Unsplash.</a>
 - I referred to the Love Maths project for creating my initial HTML structure and what functions I would require.
 - I also created my score area using the Love Maths project as as basis for it.
 - I found the following walkthrough <a href="https://www.youtube.com/watch?v=riDzcEQbX6k">video</a> on making a quiz useful in helping me form the basis for my quiz before adding my own custom features.

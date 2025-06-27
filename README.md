@@ -362,9 +362,9 @@ Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/vi
 
 ### PageSpeed Insights
 
-- I tested the website on PageSpeed Insights which allowed me to find out more details that my form was not labelled correctly and not all my images had alt tags which explained why the accessibility rating was not 100%. As you can see in the tables below PageSpeed Insights desktop and PageSpeed Insights mobile have given the website 100% for accessibility on all pages.
+- I tested the website on PageSpeed Insights which allowed me to find out more details of issues. My accessibility was not 100% due to the resolution of the image and my best practices was also not 100% due to a missing meta tag in my HTML. As you can see in the tables below PageSpeed Insights desktop and PageSpeed Insights mobile have given the website 100% for accessibility.
 
-| App        | Screenshot desktop and mobile                                                                                                                                  |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/test/pagespeed_index_html_desktop.png" alt="Index desktop screenshot"></details> |
-| index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/test/pagespeed_index_html_mobile.png" alt="Index mobile screenshot"></details>   |
+| App        | Screenshot desktop and mobile                                                                                                                            |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/page_speed_insights_desktop.png" alt="Index desktop screenshot"></details> |
+| index.html | <details><summary>100% Accessibility</summary><img src="assets/images/read_me/page_speed_insights_mobile.png" alt="Index mobile screenshot"></details>   |

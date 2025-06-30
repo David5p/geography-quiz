@@ -287,8 +287,9 @@ Wireframes: https://drive.google.com/file/d/1VVts8mL-VwiWUL6Y6gXo_xzze9kkFflV/vi
 #### End of quiz
 
 <p align="center">
-  <img src="assets/images/read_me/main_menu.png" alt="Shows screen at the end of the quiz">
+  <img src="assets/images/read_me/final_message.png" alt="Shows screen at the end of the quiz">
 
+- 3 Seconds after the user finishes the quiz, the answer buttons will disapear and then the question container's style will change with a message informing the user the quiz has finished.
 - When the user finishes the quiz, I want the user to return to the main menu. The new button's appearance replace the next button will take the user back to the screen they see when they enter the site.
 
 - The user can also see the finished scoreboard of how many they got correct and incorrect before exiting the quiz.
@@ -379,6 +380,24 @@ Wireframes: https://drive.google.com/file/d/1VVts8mL-VwiWUL6Y6gXo_xzze9kkFflV/vi
 
 - The website's functionality was primarily checked and assessed on Google Chrome and using Dev Tools to check fuctionality on different screen sizes.
 
+- I recognise that if I were to develop this project, It would be wise to refactor some of my JavaScript code. A number of my functions contain similar code as I have separate capitals and countries functions. By refactoring some functions in my JavaScript and then calling capitals and countries as the arguements. Then if I wanted to add more categories I would just add more arguements to the function call rather than creating new functions for each category
+
+#### User Stories Reflection
+
+- During the testing process and I looked back at my user stories to see if I achieved all of my Must-haves.
+
+- My quiz website has a friendly design and works well on all devices.
+
+- There is a clear color scheme and style when the user answers the questions so they know if they have answered correctly or incorrectly.Both quizzes has been tested on different device and the color scheme and styles were applying correctly.
+
+- The question bank for the two categories features questions from countries across the world so meets the user criteria of testing a range of geographical knowledge.
+
+- The timer for each question provides a challenge for the user to complete the 10 question quiz in a maximum of 200 seconds (20 seconds per question). The timer works well and resets after each question.
+
+- The inclusion of the score area allows the user to track their progress throughout the quiz with both the incorrect and correct answer tallies functioning without a fault.
+
+- If I were to develop the project, I would include different levels and imagery for each question as stated in my user stories on my project board.
+
 ### PageSpeed Insights
 
 - I tested the website on PageSpeed Insights which allowed me to find out more details of issues. My accessibility was not 100% due to the resolution of the image and my best practices was also not 100% due to a missing meta tag in my HTML. As you can see in the tables below PageSpeed Insights desktop and PageSpeed Insights mobile have given the website 100% for accessibility.
@@ -444,5 +463,5 @@ The live link to the website can be found here: [Capitals and Countries Quiz](ht
 - The hero image was used from <a href="https://unsplash.com/"> Unsplash.</a>
 - I referred to the Love Maths project for creating my initial HTML structure and what functions I would require.
 - I also created my score area using the Love Maths project as as basis for it.
-- I found the following walkthrough <a href="https://www.youtube.com/watch?v=riDzcEQbX6k">video</a> on making a quiz useful in helping me form the basis for my quiz before adding my own custom features.
+- I found the following walkthrough <a href="https://www.youtube.com/watch?v=riDzcEQbX6k">video</a> on making a quiz useful in helping me form the basis for my quiz before adding my own custom features. The quiz helped me set up a number of function which helped form the structure of my quiz.
 - I used StackOverflow a few times including when I was attempting to solve the <a href="https://stackoverflow.com/questions/77343449/using-of-trailing-slash-in-void-element">trailing slash issue</a> and to help me <a href="https://stackoverflow.com/questions/68994961/how-can-i-make-a-certain-word-bold-in-javascript">bold certain words</a> in my questions.

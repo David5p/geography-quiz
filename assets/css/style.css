@@ -242,7 +242,9 @@ button.menu:hover {
   display: none !important;
 }
 
-/*For accesibility only*/
+/* For accesibility only. Credit:
+ https://v1.tailwindcss.com/docs/screen-readers
+See Read Me for more information*/
 .sr-only {
   position: absolute !important;
   width: 1px !important;

@@ -71,10 +71,11 @@ fetch('assets/questions.json')
   })
   .catch((err) => console.error('Error loading questions:', err));
 
+/**
+ * Allows user to return to the main menu at any point during the quiz
+ */
 function handleExitClick() {
-  if (confirm('Are you sure you want to exit the quiz?')) {
-    returnToCategories();
-  }
+  returnToCategories();
 }
 
 // Event listeners
@@ -141,10 +142,17 @@ function startTimer() {
   }, 1000);
 }
 
+/**
+ * Stops the timer after each question
+ */
 function stopTimer() {
   clearInterval(timerInterval);
 }
 
+/**
+ * If the timer runs out the user will receive feedback.
+ * Move onto the next question after 6 seconds.
+ */
 function handleTimeOut() {
   const questionTextElement = quizType === 'capital' ? document.getElementById('capitals-question-text') : document.getElementById('countries-question-text');
   const answerButtons = quizType === 'capital' ? document.getElementById('capitals-answer-btn') : document.getElementById('countries-answer-btn');
@@ -158,14 +166,16 @@ function handleTimeOut() {
   incrementWrongAnswer();
   showNextButton();
 
-  //Automate progress to next question after 10 seconds
+  //Automate progress to next question after 6 seconds
   feedbackTimeout = setTimeout(() => {
     handleNextButtonClick();
   }, 6000);
   scheduleAutoAdvance();
 }
 
-// Allows the user to see the countries questions
+/**
+ * Allows the user to see the countries questions
+ */
 function startCountriesGame() {
   quizType = 'country';
   currentCountriesQuestionIndex = 0;
@@ -198,7 +208,9 @@ function startCountriesGame() {
   showExitButton();
 }
 
-// Makes the host page versatile by changing the title depending on the game choice chosen
+/**
+ * Makes the host page versatile by changing the title depending on the game choice chosen
+ */
 function replaceTitle(type) {
   const oldTitle = document.getElementsByTagName('h1')[0];
   const newTitle = document.createElement('h1');
@@ -212,7 +224,9 @@ function replaceTitle(type) {
   oldTitle.replaceWith(newTitle);
 }
 
-// Handle next button click for both quizzes so no need for function in event listener
+/**
+ * Handle next button click for both quizzes so no need for function in event listener
+ */
 function handleNextButtonClick() {
   // Cancel pending auto-next
   clearTimeout(feedbackTimeout);
@@ -233,8 +247,11 @@ function handleNextButtonClick() {
     }
   }
 }
-
+/**
+ * Sets certain words in the question to bold.
+ */
 function boldWords(text) {
+  // Credit: https://stackoverflow.com/questions/68994961/how-can-i-make-a-certain-word-bold-in-javascript
   const wordsToBold = ['not', 'one'];
 
   wordsToBold.forEach((word) => {
@@ -245,19 +262,25 @@ function boldWords(text) {
   return text;
 }
 
-// Makes the quiz flow from one question to another
+/**
+ * Makes the countries quiz flow from one question to another
+ */
 function setNextCountryQuestion() {
   resetState();
   showCountriesQuestion(shuffledCountriesQuestions[currentCountriesQuestionIndex]);
 }
 
-// Makes the quiz flow from one question to another
+/**
+ * Makes the capitals quiz flow from one question to another
+ */
 function setNextCapitalQuestion() {
   resetState();
   showCapitalsQuestion(shuffledCapitalQuestions[currentCapitalsQuestionIndex]);
 }
 
-//Shows the capitals questions and creates new answer buttons
+/**
+ * Shows the capitals questions and creates new answer buttons
+ */
 function showCapitalsQuestion(question) {
   if (!question) {
     console.log('Error! Attempted to show capitals question but returned undefined');
@@ -298,6 +321,7 @@ function showCapitalsQuestion(question) {
   capitalsAnswerButtons.appendChild(timerButton);
   startTimer();
 }
+
 /*
  * Shows the countries questions and creates new answer buttons
  */
@@ -436,13 +460,16 @@ function selectAnswer(e) {
       }, 2000);
     }
   }
-  //Automate progress to next question after 10 seconds
+  //Automate progress to next question after 6 seconds
   feedbackTimeout = setTimeout(() => {
     handleNextButtonClick();
   }, 6000);
   scheduleAutoAdvance();
 }
 
+/**
+ * Reveal next button with custom styles added
+ */
 function showNextButton() {
   nextButton.innerText = 'Next';
   nextButton.style.background = '#00008B';
@@ -451,7 +478,7 @@ function showNextButton() {
 }
 
 /**
- * Allow quiz to flow with 10 second wait period before quiz advances to the next question
+ * Allow quiz to flow with 6 second wait period before quiz advances to the next question
  */
 function scheduleAutoAdvance() {
   clearTimeout(feedbackTimeout); // Ensure no double-timeouts
@@ -467,7 +494,7 @@ function incrementScore() {
   try {
     const correctElement = document.getElementById('correct');
     if (!correctElement) throw new Error('Element with ID correct cannot be found.');
-
+    //function to increment score taken from the Love Maths Project
     let oldScore = parseInt(correctElement.innerText);
     if (isNaN(oldScore)) throw new Error("'correct' innertext is not a number");
 
@@ -485,7 +512,7 @@ function incrementWrongAnswer() {
   try {
     const incorrectElement = document.getElementById('incorrect');
     if (!incorrectElement) throw new Error('Element with ID incorrect cannot be found');
-
+    //function to increment wrong answer score taken from the Love Maths Project
     let oldScore = parseInt(incorrectElement.innerText);
     if (isNaN(oldScore)) throw new Error("'incorrect' innertext is not a number");
 
@@ -565,13 +592,16 @@ function setStatusClass(element, correct) {
 }
 
 /**
- * removes any previous correct or wrong classes from a button
+ * Removes any previous correct or wrong classes from a button
  */
 function clearStatusClass(element) {
   element.classList.remove('correct');
   element.classList.remove('wrong');
 }
 
+/**
+ * Shows exit button
+ */
 function showExitButton() {
   exitButton.classList.remove('hide');
 }

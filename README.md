@@ -183,7 +183,7 @@ The Business Goals of The Capitals and Countries Quiz are:
 
 ### Wireframes and Project Board
 
-Wireframes: https://drive.google.com/file/d/1k4unq4sarqAHbu1q9Jb_lBFvokq2BNIJ/view?usp=sharing
+Wireframes: https://drive.google.com/file/d/1VVts8mL-VwiWUL6Y6gXo_xzze9kkFflV/view?usp=sharing
 
 - I used the projects board to help me plan my website. I have found it a useful check guide since it was introduced and have decided to continue using it on my projects.
 - The plan allowed me to focus on achieving what was most important to include in my website first before attempting to achieve other features.

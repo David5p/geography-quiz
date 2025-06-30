@@ -72,7 +72,6 @@ fetch('assets/questions.json')
   .catch((err) => console.error('Error loading questions:', err));
 
 function handleExitClick() {
-  console.log('click exit button'); //debug log to ensure exit button only goes off once
   if (confirm('Are you sure you want to exit the quiz?')) {
     returnToCategories();
   }
@@ -162,7 +161,7 @@ function handleTimeOut() {
   //Automate progress to next question after 10 seconds
   feedbackTimeout = setTimeout(() => {
     handleNextButtonClick();
-  }, 10000);
+  }, 6000);
   scheduleAutoAdvance();
 }
 
@@ -419,7 +418,10 @@ function selectAnswer(e) {
       nextButton.classList.remove('hide');
       nextButtonContainer.classList.remove('hide');
     } else {
-      lastQuestion();
+      // Delay showing final message to let feedback show first
+      feedbackTimeout = setTimeout(() => {
+        lastQuestion();
+      }, 2000);
     }
   } else if (quizType === 'country') {
     if (shuffledCountriesQuestions.length > currentCountriesQuestionIndex + 1) {
@@ -428,13 +430,16 @@ function selectAnswer(e) {
       nextButton.classList.remove('hide');
       nextButtonContainer.classList.remove('hide');
     } else {
-      lastQuestion();
+      // Delay showing final message to let feedback show first
+      feedbackTimeout = setTimeout(() => {
+        lastQuestion();
+      }, 2000);
     }
   }
   //Automate progress to next question after 10 seconds
   feedbackTimeout = setTimeout(() => {
     handleNextButtonClick();
-  }, 10000);
+  }, 6000);
   scheduleAutoAdvance();
 }
 
@@ -452,7 +457,7 @@ function scheduleAutoAdvance() {
   clearTimeout(feedbackTimeout); // Ensure no double-timeouts
   feedbackTimeout = setTimeout(() => {
     handleNextButtonClick();
-  }, 10000);
+  }, 6000);
 }
 
 /**
@@ -533,6 +538,18 @@ function lastQuestion() {
   nextButton.classList.add('bold-large-button');
   nextButtonContainer.classList.remove('hide');
   nextButton.classList.remove('hide');
+
+  const questionTextElement = quizType === 'capital' ? document.getElementById('capitals-question-text') : document.getElementById('countries-question-text');
+
+  const countriesAnswerButtons = document.getElementById('countries-answer-btn');
+  const capitalsAnswerButtons = document.getElementById('capitals-answer-btn');
+  //Show message to let user know the quiz has ended
+  capitalsAnswerButtons.classList.add('hide');
+  countriesAnswerButtons.classList.add('hide');
+  exitButton.classList.add('hide');
+  questionTextElement.innerHTML = 'Well Done! The quiz is now finished! Click <strong>Return to Main Menu</strong> below to choose another quiz.';
+  questionTextElement.classList.remove('correct-feedback', 'incorrect-feedback');
+  questionTextElement.classList.add('final-feedback');
 }
 
 /**

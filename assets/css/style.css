@@ -231,6 +231,12 @@ button.menu:hover {
   color: #ffffff;
   font-size: 1.5em;
 }
+/* Feedback added dynamically from JavaScript but class applied here */
+.final-feedback {
+  background-color: #fffdd0; /*cream*/
+  color: var(--primary-color);
+  font-size: 1.5em;
+}
 /* Utility class to hide elements as needed by JavaScript */
 .hide {
   display: none !important;

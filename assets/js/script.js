@@ -220,7 +220,7 @@ function replaceTitle(type) {
   if (type === 'capital') {
     newTitle.textContent = 'Capitals Quiz';
   } else if (type === 'country') {
-    newTitle.textContent = 'Country Quiz';
+    newTitle.textContent = 'Countries Quiz';
   } else {
     newTitle.textContent = 'Countries and Capitals Quiz';
   }

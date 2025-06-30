@@ -14,7 +14,7 @@
    <a href="https://david5p.github.io/geography-quiz/">The Countries and Capitals Quiz</a> project is a website for Geography lovers looking to test their knowledge.
    The website is targeted towards adults and teenager looking for a geography quiz. It could also be used in educational settings for anyone aged 10 and older.
 
-   Users of the website will be able to answer questions and receive feedback on their answers immediately. There is a timer for each question adding a challenge to answer in 20 seconds. If the user does not answer the question in the alloted time, the quiz will automatically give feedback to the user and then move on.
+   Users of the website receive answers immediately, plus a score summary. There is a timer for each question adding a challenge to answer in 20 seconds. If the user does not answer the question in the allotted time, the quiz will automatically give feedback to the user and then move on.
 
    </details>
 
@@ -131,7 +131,7 @@
 
 ### Visitor Goals
 
-The target audience for The Capitals and Country Quiz are:
+The target audience for The Capitals and Countries Quiz are:
 
 - Teenagers and adults who are quiz and trivia enthusiasts.
 - Upper Primary to Secondary school students looking to test their knowledge.
@@ -289,7 +289,7 @@ Wireframes: https://drive.google.com/file/d/1VVts8mL-VwiWUL6Y6gXo_xzze9kkFflV/vi
 <p align="center">
   <img src="assets/images/read_me/final_message.png" alt="Shows screen at the end of the quiz">
 
-- 3 Seconds after the user finishes the quiz, the answer buttons will disapear and then the question container's style will change with a message informing the user the quiz has finished.
+- 3 Seconds after the user finishes the quiz, the answer buttons will disappear and then the question container's style will change with a message informing the user the quiz has finished.
 - When the user finishes the quiz, I want the user to return to the main menu. The new button's appearance replace the next button will take the user back to the screen they see when they enter the site.
 
 - The user can also see the finished scoreboard of how many they got correct and incorrect before exiting the quiz.

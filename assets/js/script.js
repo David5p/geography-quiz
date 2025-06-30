@@ -60,7 +60,8 @@ fetch('assets/questions.json')
       })),
     }));
 
-    // Questions shuffle after loading
+    // Questions shuffle after loading.
+    //Credit: Web Dev Simplified for shuffling code. See Read Me for more details.
     shuffledCapitalQuestions = [...capitalsQuiz].sort(() => Math.random() - 0.5);
     shuffledCountriesQuestions = [...countriesQuiz].sort(() => Math.random() - 0.5);
 
@@ -85,6 +86,7 @@ countriesButton.addEventListener('click', startCountriesGame);
 /**
  *Allows the user to see the capitals questions
  */
+// Credit: Web Dev Simplified for display none and remove hide class. See Read Me for more details.
 function startCapitalsGame() {
   quizType = 'capital';
   currentCapitalsQuestionIndex = 0;
@@ -176,6 +178,7 @@ function handleTimeOut() {
 /**
  * Allows the user to see the countries questions
  */
+// Credit: Web Dev Simplified for display none and remove hide class. See Read Me for more details.
 function startCountriesGame() {
   quizType = 'country';
   currentCountriesQuestionIndex = 0;
@@ -273,6 +276,7 @@ function setNextCountryQuestion() {
 /**
  * Makes the capitals quiz flow from one question to another
  */
+// Credit: Web Dev Simplified for including this in the function structure. See Read Me for more details.
 function setNextCapitalQuestion() {
   resetState();
   showCapitalsQuestion(shuffledCapitalQuestions[currentCapitalsQuestionIndex]);
@@ -281,6 +285,7 @@ function setNextCapitalQuestion() {
 /**
  * Shows the capitals questions and creates new answer buttons
  */
+// Credit: Web Dev Simplified for including this in the function structure. See Read Me for more details.
 function showCapitalsQuestion(question) {
   if (!question) {
     console.log('Error! Attempted to show capitals question but returned undefined');
@@ -297,7 +302,7 @@ function showCapitalsQuestion(question) {
   // Clear any previous feedback styles
   capitalsQuestionElement.classList.remove('correct-feedback', 'incorrect-feedback');
 
-  // clear previous buttons
+  // clear previous buttons. Credit Web Dev Simplified. See Read Me for more details
   capitalsAnswerButtons.innerHTML = '';
   question.answers.forEach((answer) => {
     const button = document.createElement('button');
@@ -342,6 +347,7 @@ function showCountriesQuestion(question) {
   // clear previous buttons
   countriesAnswerButtons.innerHTML = '';
 
+  // Credit Web Dev Simplified. See Read Me for more details
   question.answers.forEach((answer) => {
     const button = document.createElement('button');
     button.innerText = answer.text;
@@ -366,7 +372,7 @@ function showCountriesQuestion(question) {
 }
 
 /**
- * Resets the quiz after each question
+ * Resets the quiz after each question. Credit Web Dev Simplified. See Read Me for more details
  */
 function resetState() {
   nextButtonContainer.classList.add('hide');
@@ -407,6 +413,7 @@ function selectAnswer(e) {
     timerElement.remove();
   }
 
+  // Credit Web Dev Simplified. See Read Me for more details
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct === 'true';
 
@@ -582,6 +589,7 @@ function lastQuestion() {
 /**
  * Clears classes and then adds either correct or wrong based on whether the answer is right.
  */
+// Credit Web Dev Simplified. See Read Me for more details
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
@@ -594,6 +602,7 @@ function setStatusClass(element, correct) {
 /**
  * Removes any previous correct or wrong classes from a button
  */
+// Credit Web Dev Simplified. See Read Me for more details
 function clearStatusClass(element) {
   element.classList.remove('correct');
   element.classList.remove('wrong');

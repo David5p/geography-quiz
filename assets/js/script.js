@@ -76,6 +76,9 @@ fetch('assets/questions.json')
  * Allows user to return to the main menu at any point during the quiz
  */
 function handleExitClick() {
+  // Cancel any pending feedback timeout to avoid delayed UI changes
+  clearTimeout(feedbackTimeout);
+  feedbackTimeout = null;
   returnToCategories();
 }
 
@@ -568,6 +571,9 @@ function returnToCategories() {
  * Allows user to return to the main menu at the end of the quiz
  */
 function lastQuestion() {
+  // Prevent function running if quiz was exited early
+  if (!quizType) return;
+
   nextButton.innerText = 'Return to Main Menu';
   nextButton.classList.add('bold-large-button');
   nextButtonContainer.classList.remove('hide');

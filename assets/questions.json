@@ -1,7 +1,7 @@
 {
   "capitalsQuestions": [
     {
-      "question": "Which of one of these is not a capital city in Europe?",
+      "question": "Which one of these is not a capital city in Europe?",
       "options": ["Zurich", "Brussels", "Lisbon", "Ljubljana"],
       "answer": "Zurich"
     },
@@ -11,7 +11,7 @@
       "answer": "Riga"
     },
     {
-      "question": "Which of one of these is a capital city in South America?",
+      "question": "Which one of these is a capital city in South America?",
       "options": ["Guimaraes", "Córdoba", "Aveiro", "Lima"],
       "answer": "Lima"
     },
@@ -122,7 +122,7 @@
       "options": ["Latvia", "Israel", "Malta", "Luxembourg"],
       "answer": "Israel"
     },
-     {
+    {
       "question": "Which one of these is not a country in Central America?",
       "options": ["Uruguay", "El Salvador", "Honduras", "Belize"],
       "answer": "Uruguay"
@@ -154,7 +154,7 @@
       "options": ["Vietnam", "Mongolia", "Myanmar", "Uzbekistan"],
       "answer": "Uzbekistan"
     },
-{
+    {
       "question": "Which one of these countries border Mexico?",
       "options": ["Cuba", "Peru", "Belize", "Puerto Rico"],
       "answer": "Belize"
@@ -171,7 +171,7 @@
       "answer": "Romania"
     },
 
- {
+    {
       "question": "Which landlocked African country is completely surrounded by South Africa?",
       "options": ["The Gambia", "Eswatini", "Zimbabwe", "Lesotho"],
       "answer": "Lesotho"
@@ -182,7 +182,7 @@
       "options": ["34", "50", "42", "55"],
       "answer": "50"
     },
-  {
+    {
       "question": "How many countries are in Asia geographically?",
       "options": ["41", "60", "49", "37"],
       "answer": "49"
@@ -203,7 +203,7 @@
       "options": ["14", "25", "23", "21"],
       "answer": "23"
     },
-{
+    {
       "question": "What continent is Greenland on?",
       "options": ["Europe", "Antartica", "South America", "North America"],
       "answer": "North America"

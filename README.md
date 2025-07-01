@@ -413,11 +413,16 @@ Wireframes: https://drive.google.com/file/d/1VVts8mL-VwiWUL6Y6gXo_xzze9kkFflV/vi
 
 - I had an issue with my exit button prompting an alert twice. I resolved this issue by ensuring the event listener was only added once and not being adding twice because of the two game types.
 
-- I noticed a small glitch where the Bootstrap styles show on my two buttons before my custom styles take effect. I attempted to fix this by increasing specifity in my CSS and moved my CSS link in my index.html after my Bootstrap one but this did not solve the issue. This issue remains outstanding.
-
 <p align="center">
   <img src="assets/images/visual_glitch.png" alt="Shows buttons turn blue">
   </p>
+
+- I noticed a small glitch where the Bootstrap styles show on my two buttons before my custom styles take effect. I attempted to fix this by increasing specifity in my CSS and moved my CSS link in my index.html after my Bootstrap one but this did not solve the issue. This issue remains outstanding.
+<p align="center">
+  <img src="assets/images/read_me/exit_quiz_bug.png" alt="Shows Return to Main Menu button staying on the screen">
+  </p>
+
+- My friend noticed a bug on the last question. If the user decides to click exit quiz after answering the question but before they receive their final feedback then the Return to Main Menu button remains on screen for their return. If the user clicks it, it disappears. Initially, I tried to hide the button in the last Question function but this did not work. Then I tried adding an if statement to my last question function which meant the function will not execute should the user click exit early. As an extra protection, I also added a cancel any pending timeout to my handle exit button function. These two measures ensured the bug was resolved.
 
 - I tested the website by playing the different quizzes multiple times and could not find any more bugs or glitches. I tried clicking multiple times on different answer buttons but the screen locks upon the first selection and does not allow another click. I tried this on different devices and used inspect to test responsiveness.
 
